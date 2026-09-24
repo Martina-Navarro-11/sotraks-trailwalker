@@ -1,0 +1,257 @@
+const SUPPORTED_LANGS = ["es", "ca"];
+const DEFAULT_LANG = "es";
+const LANG_STORAGE_KEY = "sotraks-lang";
+
+const translationsCache = {};
+let revealObserver = null;
+
+function getLang() {
+  const stored = localStorage.getItem(LANG_STORAGE_KEY);
+  return SUPPORTED_LANGS.includes(stored) ? stored : DEFAULT_LANG;
+}
+
+function setLang(lang) {
+  localStorage.setItem(LANG_STORAGE_KEY, lang);
+}
+
+function localeFor(lang) {
+  return lang === "ca" ? "ca-ES" : "es-ES";
+}
+
+async function loadTranslations(lang) {
+  if (translationsCache[lang]) return translationsCache[lang];
+  const res = await fetch(`data/i18n/${lang}.json`);
+  const data = await res.json();
+  translationsCache[lang] = data;
+  return data;
+}
+
+async function loadConfig() {
+  const res = await fetch("data/config.json");
+  return res.json();
+}
+
+function t(translations, path) {
+  const value = path.split(".").reduce((cur, key) => (cur ? cur[key] : undefined), translations);
+  return typeof value === "string" ? value : path;
+}
+
+function interpolate(str, vars) {
+  return str.replace(/\{\{\s*(\w+)\s*\}\}/g, (_, key) => (key in vars ? vars[key] : ""));
+}
+
+function formatDate(dateStr, lang, options) {
+  const d = new Date(dateStr + "T00:00:00");
+  return d.toLocaleDateString(localeFor(lang), options);
+}
+
+function groupThousands(n) {
+  return Math.round(n).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+}
+
+function formatCurrency(amount, config) {
+  return `${config.currency}${groupThousands(amount)}`;
+}
+
+function daysUntil(dateStr) {
+  const target = new Date(dateStr + "T00:00:00");
+  const now = new Date();
+  now.setHours(0, 0, 0, 0);
+  return Math.max(Math.ceil((target - now) / 86400000), 0);
+}
+
+function buildVars(config, lang) {
+  return {
+    teamName: config.teamName,
+    raceName: config.raceName,
+    raceDistance: config.raceDistance,
+    raceDate: formatDate(config.raceDate, lang, { day: "numeric", month: "long", year: "numeric" }),
+    raceLocation: config.raceLocation,
+    raised: formatCurrency(config.fundraisingRaised, config, lang),
+    goal: formatCurrency(config.fundraisingGoal, config, lang),
+  };
+}
+
+function applyI18n(translations, config, lang) {
+  const vars = buildVars(config, lang);
+  document.querySelectorAll("[data-i18n]").forEach((el) => {
+    const key = el.getAttribute("data-i18n");
+    el.textContent = interpolate(t(translations, key), vars);
+  });
+  document.documentElement.lang = lang;
+}
+
+function applyCommon(config) {
+  document.querySelectorAll("[data-team-name]").forEach((el) => {
+    el.textContent = config.teamName;
+  });
+  document.querySelectorAll("[data-contact-email]").forEach((el) => {
+    el.textContent = config.contactEmail;
+    el.href = "mailto:" + config.contactEmail;
+  });
+  document.querySelectorAll("[data-donation-link]").forEach((el) => {
+    if (config.donationUrl) {
+      el.href = config.donationUrl;
+    } else {
+      el.href = "#";
+      el.title = "Enlace de colaboración pendiente";
+    }
+  });
+
+  const socials = document.querySelector("[data-socials]");
+  if (socials) {
+    const links = Object.entries(config.socialLinks || {}).filter(([, url]) => url);
+    socials.innerHTML = links
+      .map(([name, url]) => `<a href="${url}" target="_blank" rel="noopener">${name}</a>`)
+      .join("");
+  }
+}
+
+/* Animated counters */
+function animateValue(el, target, { duration = 1100, format = (n) => Math.round(n).toString() } = {}) {
+  const start = performance.now();
+  const from = 0;
+  function tick(now) {
+    const progress = Math.min((now - start) / duration, 1);
+    const eased = 1 - Math.pow(1 - progress, 3);
+    el.textContent = format(from + (target - from) * eased);
+    if (progress < 1) requestAnimationFrame(tick);
+    else el.textContent = format(target);
+  }
+  requestAnimationFrame(tick);
+}
+
+function renderHeroStats(config, lang) {
+  const barEl = document.querySelector("[data-progress-bar]");
+  if (barEl) {
+    const pct = Math.min(100, Math.round((config.fundraisingRaised / config.fundraisingGoal) * 100));
+    requestAnimationFrame(() => { barEl.style.width = pct + "%"; });
+  }
+
+  const goalEl = document.querySelector('[data-stat="goal"]');
+  const raisedEl = document.querySelector('[data-stat="raised"]');
+  const daysEl = document.querySelector('[data-stat="days"]');
+  const teamEl = document.querySelector('[data-stat="team"]');
+
+  if (goalEl) animateValue(goalEl, config.fundraisingGoal, { format: (n) => `${config.currency}${groupThousands(n)}` });
+  if (raisedEl) animateValue(raisedEl, config.fundraisingRaised, { format: (n) => `${config.currency}${groupThousands(n)}` });
+  if (daysEl) animateValue(daysEl, daysUntil(config.raceDate), { format: (n) => Math.round(n).toString() });
+  if (teamEl) animateValue(teamEl, (config.teamMembers || []).length, { format: (n) => Math.round(n).toString() });
+}
+
+function renderTeam(config, translations) {
+  const wrap = document.querySelector("[data-team-list]");
+  if (!wrap) return;
+  wrap.innerHTML = (config.teamMembers || [])
+    .map((m, idx) => {
+      const roleKey = m.role === "walker" ? "team.roleWalker" : "team.roleOrganizer";
+      const roleClass = m.role === "walker" ? "role-walker" : "role-organizer";
+      return `
+      <div class="card team-card ${roleClass} reveal" style="transition-delay:${Math.min(idx * 50, 400)}ms">
+        <div class="team-photo">${
+          m.photo ? `<img src="${m.photo}" alt="${m.name}">` : m.name.charAt(0)
+        }</div>
+        <h3>${m.name}</h3>
+        <span class="event-status upcoming">${t(translations, roleKey)}</span>
+        <p>${m.bio}</p>
+      </div>`;
+    })
+    .join("");
+  observeReveals();
+}
+
+/* Scroll reveal */
+function observeReveals() {
+  if (!revealObserver) {
+    if (!("IntersectionObserver" in window)) {
+      document.querySelectorAll(".reveal").forEach((el) => el.classList.add("visible"));
+      return;
+    }
+    revealObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+            revealObserver.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.15 }
+    );
+  }
+  document.querySelectorAll(".reveal:not([data-observed])").forEach((el) => {
+    el.dataset.observed = "1";
+    revealObserver.observe(el);
+  });
+}
+
+window.__observeReveals = observeReveals;
+
+/* Nav interactions */
+function setupNavToggle() {
+  const btn = document.querySelector("[data-nav-toggle]");
+  const menu = document.querySelector("[data-nav-menu]");
+  if (!btn || !menu) return;
+  btn.addEventListener("click", () => {
+    const isOpen = menu.classList.toggle("open");
+    btn.classList.toggle("open", isOpen);
+    btn.setAttribute("aria-expanded", String(isOpen));
+  });
+  menu.querySelectorAll("a").forEach((a) =>
+    a.addEventListener("click", () => {
+      menu.classList.remove("open");
+      btn.classList.remove("open");
+      btn.setAttribute("aria-expanded", "false");
+    })
+  );
+}
+
+function setupHeaderShadow() {
+  const header = document.querySelector("[data-site-header]");
+  if (!header) return;
+  const onScroll = () => header.classList.toggle("scrolled", window.scrollY > 8);
+  onScroll();
+  window.addEventListener("scroll", onScroll, { passive: true });
+}
+
+function setupLangSwitch(render) {
+  const buttons = document.querySelectorAll("[data-lang-btn]");
+  const lang = getLang();
+  buttons.forEach((btn) => {
+    btn.classList.toggle("active", btn.getAttribute("data-lang-btn") === lang);
+    btn.addEventListener("click", async () => {
+      const newLang = btn.getAttribute("data-lang-btn");
+      setLang(newLang);
+      buttons.forEach((b) => b.classList.toggle("active", b === btn));
+      await render(newLang);
+      document.dispatchEvent(new CustomEvent("lang-changed", { detail: { lang: newLang } }));
+    });
+  });
+}
+
+document.addEventListener("DOMContentLoaded", async () => {
+  try {
+    const config = await loadConfig();
+    window.__siteConfig = config;
+
+    const render = async (lang) => {
+      const translations = await loadTranslations(lang);
+      applyI18n(translations, config, lang);
+      renderHeroStats(config, lang);
+      renderTeam(config, translations);
+      window.__currentLang = lang;
+      window.__translations = translations;
+    };
+
+    applyCommon(config);
+    await render(getLang());
+    setupLangSwitch(render);
+    setupNavToggle();
+    setupHeaderShadow();
+    observeReveals();
+
+    document.dispatchEvent(new CustomEvent("config-ready", { detail: config }));
+  } catch (err) {
+    console.error("Could not load site config", err);
+  }
+});

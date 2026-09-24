@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SOTRAKS · Oxfam Trailwalker</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <header class="site-header" data-site-header>
+    <nav class="nav">
+      <a class="brand" href="index.html"><span data-team-name>SOTRAKS</span></a>
+      <button class="nav-toggle" type="button" data-nav-toggle aria-label="Abrir menú" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      <div class="nav-menu" data-nav-menu>
+        <ul>
+          <li><a href="index.html#challenge" data-i18n="nav.challenge"></a></li>
+          <li><a href="index.html#cause" data-i18n="nav.cause"></a></li>
+          <li><a href="index.html#team" data-i18n="nav.team"></a></li>
+          <li><a href="events.html" data-i18n="nav.events"></a></li>
+          <li class="cta-item"><a class="cta" data-donation-link data-i18n="nav.cta" href="#" target="_blank" rel="noopener"></a></li>
+        </ul>
+        <div class="lang-switch" data-lang-switch>
+          <button type="button" data-lang-btn="es">ES</button>
+          <button type="button" data-lang-btn="ca">CA</button>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <div class="container">
+      <div class="eyebrow" data-i18n="hero.eyebrow"></div>
+      <h1 data-i18n="hero.headline"></h1>
+      <p class="lead" data-i18n="hero.lead"></p>
+
+      <div class="button-row">
+        <a class="btn btn-primary" data-donation-link data-i18n="hero.ctaPrimary" href="#" target="_blank" rel="noopener"></a>
+        <a class="btn btn-secondary" href="events.html" data-i18n="hero.ctaSecondary"></a>
+      </div>
+
+      <div class="progress-wrap">
+        <div class="progress-bar" data-progress-bar style="width: 0%"></div>
+      </div>
+
+      <div class="hero-stats">
+        <div class="stat">
+          <span class="value" data-stat="goal">—</span>
+          <span class="label" data-i18n="hero.statGoalLabel"></span>
+        </div>
+        <div class="stat">
+          <span class="value" data-stat="raised">—</span>
+          <span class="label" data-i18n="hero.statRaisedLabel"></span>
+        </div>
+        <div class="stat">
+          <span class="value" data-stat="days">—</span>
+          <span class="label" data-i18n="hero.statDaysLabel"></span>
+        </div>
+        <div class="stat">
+          <span class="value" data-stat="team">—</span>
+          <span class="label" data-i18n="hero.statTeamLabel"></span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="challenge">
+    <div class="container">
+      <div class="section-heading reveal">
+        <h2 data-i18n="challenge.heading"></h2>
+        <p data-i18n="challenge.subheading"></p>
+      </div>
+      <div class="grid cols-3">
+        <div class="card reveal">
+          <div class="icon-badge">
+            <svg viewBox="0 0 24 24"><circle cx="4.5" cy="19" r="2"/><path d="M6.5 19h3.5a4 4 0 0 0 4-4V9a4 4 0 0 1 4-4h1.5" stroke-dasharray="3 3.2"/><circle cx="19.5" cy="5" r="2"/></svg>
+          </div>
+          <h3 data-i18n="challenge.card1Title"></h3>
+          <p data-i18n="challenge.card1Body"></p>
+        </div>
+        <div class="card reveal">
+          <div class="icon-badge">
+            <svg viewBox="0 0 24 24"><circle cx="9" cy="9" r="3.2"/><path d="M2.5 20c0-4 3-6.5 6.5-6.5s6.5 2.5 6.5 6.5"/><circle cx="17.5" cy="8" r="2.4"/><path d="M15.2 13.8c2.7.5 4.3 2.5 4.3 6.2"/></svg>
+          </div>
+          <h3 data-i18n="challenge.card2Title"></h3>
+          <p data-i18n="challenge.card2Body"></p>
+        </div>
+        <div class="card reveal">
+          <div class="icon-badge">
+            <svg viewBox="0 0 24 24"><path d="M12 2.5s7 7.8 7 12.3a7 7 0 1 1-14 0c0-4.5 7-12.3 7-12.3z"/></svg>
+          </div>
+          <h3 data-i18n="challenge.card3Title"></h3>
+          <p data-i18n="challenge.card3Body"></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="cause" class="alt">
+    <div class="container">
+      <div class="section-heading reveal">
+        <h2 data-i18n="cause.heading"></h2>
+        <p data-i18n="cause.subheading"></p>
+      </div>
+      <div class="grid cols-2">
+        <div class="card reveal">
+          <div class="icon-badge">
+            <svg viewBox="0 0 24 24"><rect x="5" y="9" width="14" height="11" rx="2.5"/><path d="M8 9V6.5a4 4 0 0 1 8 0V9"/></svg>
+          </div>
+          <h3 data-i18n="cause.problemTitle"></h3>
+          <p data-i18n="cause.problemBody"></p>
+        </div>
+        <div class="card reveal">
+          <div class="icon-badge">
+            <svg viewBox="0 0 24 24"><path d="M12 20.5s-7.2-4.4-9.7-8.7C.7 8.3 3.2 4 7 4c2 0 3.6 1 5 3 1.4-2 3-3 5-3 3.8 0 6.3 4.3 4.7 7.8-2.5 4.3-9.7 8.7-9.7 8.7z"/></svg>
+          </div>
+          <h3 data-i18n="cause.moneyTitle"></h3>
+          <p data-i18n="cause.moneyBody"></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="team">
+    <div class="container">
+      <div class="section-heading reveal">
+        <h2 data-i18n="team.heading"></h2>
+        <p data-i18n="team.subheading"></p>
+      </div>
+      <div class="grid cols-3" data-team-list></div>
+    </div>
+  </section>
+
+  <section class="alt">
+    <div class="container">
+      <div class="section-heading reveal">
+        <h2 data-i18n="helpSection.heading"></h2>
+        <p data-i18n="helpSection.subheading"></p>
+      </div>
+      <div class="button-row" style="margin-bottom:0;">
+        <a class="btn btn-primary" data-donation-link data-i18n="helpSection.ctaPrimary" href="#" target="_blank" rel="noopener"></a>
+        <a class="btn btn-secondary" href="events.html" data-i18n="helpSection.ctaSecondary" style="color: var(--forest); border-color: var(--forest);"></a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p><span data-i18n="footerHome.contact"></span> <a data-contact-email href="#"></a></p>
+      <div class="socials" data-socials></div>
+    </div>
+  </footer>
+
+  <script src="js/site.js"></script>
+</body>
+</html>

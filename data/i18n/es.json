@@ -1,0 +1,66 @@
+{
+  "nav": {
+    "challenge": "El Reto",
+    "cause": "La Causa",
+    "team": "Nuestro Equipo",
+    "events": "Eventos",
+    "cta": "Colabora"
+  },
+  "hero": {
+    "eyebrow": "100 KM · UNA NOCHE · UNA CAUSA",
+    "headline": "Caminamos {{raceDistance}} por Oxfam",
+    "lead": "{{teamName}} afronta el reto {{raceName}} el {{raceDate}} en {{raceLocation}}. Todo lo recaudado se destina al trabajo de Oxfam para llevar agua potable y pozos a las comunidades que más lo necesitan.",
+    "ctaPrimary": "Apóyanos",
+    "ctaSecondary": "Ver nuestros eventos",
+    "statGoalLabel": "Objetivo",
+    "statRaisedLabel": "Recaudado",
+    "statDaysLabel": "Días para el reto",
+    "statTeamLabel": "Personas en el equipo"
+  },
+  "challenge": {
+    "heading": "El reto",
+    "subheading": "En qué nos hemos metido, y por qué no va a ser fácil.",
+    "card1Title": "100 kilómetros",
+    "card1Body": "Caminados de un tirón, de día y de noche, en equipo — nadie cruza la meta solo.",
+    "card2Title": "Un equipo de 15",
+    "card2Body": "En {{teamName}} somos 15: 6 caminantes oficiales sobre el terreno y todo el equipo trabajando en la organización y la recaudación.",
+    "card3Title": "100% para Oxfam",
+    "card3Body": "Cada aportación va directa a nuestra cuota de inscripción y a los proyectos de agua y saneamiento de Oxfam."
+  },
+  "cause": {
+    "heading": "Por qué lo hacemos",
+    "subheading": "El acceso al agua potable lo cambia todo: salud, educación, tiempo, dignidad.",
+    "problemTitle": "El problema",
+    "problemBody": "Millones de personas en todo el mundo todavía no tienen acceso a agua limpia y segura cerca de casa. Caminar largas distancias para conseguir agua —muchas veces varias veces al día— recae sobre todo en mujeres y niñas, y les roba tiempo, seguridad y oportunidades.",
+    "moneyTitle": "A dónde va el dinero",
+    "moneyBody": "Los fondos recaudados a través de nuestra inscripción y nuestros eventos apoyan los programas de Oxfam que construyen y mantienen pozos, mejoran el saneamiento y ayudan a las comunidades a gestionar el agua de forma sostenible."
+  },
+  "team": {
+    "heading": "Nuestro equipo",
+    "subheading": "Somos {{teamName}}: 15 personas, 6 caminantes oficiales, un solo objetivo.",
+    "roleWalker": "Caminante oficial",
+    "roleOrganizer": "Equipo organizador"
+  },
+  "helpSection": {
+    "heading": "Ayúdanos a llegar",
+    "subheading": "Dos maneras de apoyar el reto: colabora directamente, o apúntate a uno de nuestros eventos.",
+    "ctaPrimary": "Colabora ahora",
+    "ctaSecondary": "Próximos eventos"
+  },
+  "footerHome": {
+    "contact": "¿Preguntas? Escríbenos a"
+  },
+  "eventsPage": {
+    "eyebrow": "Calendario de recaudación",
+    "headline": "Ven a recaudar fondos con nosotros",
+    "lead": "Cada evento nos acerca a nuestro objetivo con el {{raceName}}. Trae amigos, trae familia — cada aportación cuenta.",
+    "note": "Miembros del equipo: para añadir, editar o eliminar un evento, abrid data/events.json, copiad el formato de una entrada existente y guardad. La página se actualiza sola, no hace falta saber programar. Las fechas usan el formato AAAA-MM-DD.",
+    "upcomingHeading": "Próximos eventos",
+    "pastHeading": "Eventos pasados",
+    "emptyUpcoming": "Todavía no hay eventos programados — añade uno en data/events.json.",
+    "emptyPast": "Todavía no hay eventos pasados.",
+    "statusUpcoming": "Próximo",
+    "statusPast": "Pasado",
+    "footerContact": "¿Quieres ayudar a organizar el próximo evento? Escríbenos a"
+  }
+}

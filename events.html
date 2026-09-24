@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SOTRAKS · Eventos</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <header class="site-header" data-site-header>
+    <nav class="nav">
+      <a class="brand" href="index.html"><span data-team-name>SOTRAKS</span></a>
+      <button class="nav-toggle" type="button" data-nav-toggle aria-label="Abrir menú" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      <div class="nav-menu" data-nav-menu>
+        <ul>
+          <li><a href="index.html#challenge" data-i18n="nav.challenge"></a></li>
+          <li><a href="index.html#cause" data-i18n="nav.cause"></a></li>
+          <li><a href="index.html#team" data-i18n="nav.team"></a></li>
+          <li><a href="events.html" data-i18n="nav.events"></a></li>
+          <li class="cta-item"><a class="cta" data-donation-link data-i18n="nav.cta" href="#" target="_blank" rel="noopener"></a></li>
+        </ul>
+        <div class="lang-switch" data-lang-switch>
+          <button type="button" data-lang-btn="es">ES</button>
+          <button type="button" data-lang-btn="ca">CA</button>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <section class="hero" style="padding-bottom: 56px;">
+    <div class="container">
+      <div class="eyebrow" data-i18n="eventsPage.eyebrow"></div>
+      <h1 data-i18n="eventsPage.headline"></h1>
+      <p class="lead" data-i18n="eventsPage.lead"></p>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <div class="note-box reveal" data-i18n="eventsPage.note"></div>
+
+      <div class="section-heading reveal" style="text-align:left; margin-bottom:24px;">
+        <h2 data-i18n="eventsPage.upcomingHeading"></h2>
+      </div>
+      <div class="grid cols-2" data-upcoming-events></div>
+
+      <div class="section-heading reveal" style="text-align:left; margin: 56px 0 24px;">
+        <h2 data-i18n="eventsPage.pastHeading"></h2>
+      </div>
+      <div class="grid cols-2" data-past-events></div>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p><span data-i18n="eventsPage.footerContact"></span> <a data-contact-email href="#"></a></p>
+      <div class="socials" data-socials></div>
+    </div>
+  </footer>
+
+  <script src="js/site.js"></script>
+  <script src="js/events.js"></script>
+</body>
+</html>
