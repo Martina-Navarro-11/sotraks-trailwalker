@@ -6,14 +6,14 @@
   <title>SOTRAKS · Oxfam Trailwalker</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Space+Mono:wght@400;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
 
   <header class="site-header" data-site-header>
     <nav class="nav">
-      <a class="brand" href="index.html"><span data-team-name>SOTRAKS</span></a>
+      <a class="brand" href="index.html"><img src="images/logo.png" alt="SOTRAKS"></a>
       <button class="nav-toggle" type="button" data-nav-toggle aria-label="Abrir menú" aria-expanded="false">
         <span></span><span></span><span></span>
       </button>
@@ -37,6 +37,11 @@
     <div class="container">
       <div class="eyebrow" data-i18n="hero.eyebrow"></div>
       <h1 data-i18n="hero.headline"></h1>
+      <svg class="trail-underline" viewBox="0 0 220 26" aria-hidden="true">
+        <path d="M6,14 C20,3 34,25 48,14 C62,3 76,25 90,14 C104,3 118,25 132,14 C146,3 160,25 174,14 C188,3 202,14 214,14" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+        <circle cx="6" cy="14" r="4" fill="currentColor"/>
+        <circle cx="214" cy="14" r="4" fill="currentColor"/>
+      </svg>
       <p class="lead" data-i18n="hero.lead"></p>
 
       <div class="button-row">
@@ -67,11 +72,13 @@
         </div>
       </div>
     </div>
+    <div class="hero-cut" aria-hidden="true"></div>
   </section>
 
   <section id="challenge">
     <div class="container">
       <div class="section-heading reveal">
+        <div class="kicker" data-i18n="challenge.kicker"></div>
         <h2 data-i18n="challenge.heading"></h2>
         <p data-i18n="challenge.subheading"></p>
       </div>
@@ -104,6 +111,7 @@
   <section id="cause" class="alt">
     <div class="container">
       <div class="section-heading reveal">
+        <div class="kicker" data-i18n="cause.kicker"></div>
         <h2 data-i18n="cause.heading"></h2>
         <p data-i18n="cause.subheading"></p>
       </div>
@@ -129,6 +137,7 @@
   <section id="team">
     <div class="container">
       <div class="section-heading reveal">
+        <div class="kicker" data-i18n="team.kicker"></div>
         <h2 data-i18n="team.heading"></h2>
         <p data-i18n="team.subheading"></p>
       </div>
@@ -139,12 +148,13 @@
   <section class="alt">
     <div class="container">
       <div class="section-heading reveal">
+        <div class="kicker" data-i18n="helpSection.kicker"></div>
         <h2 data-i18n="helpSection.heading"></h2>
         <p data-i18n="helpSection.subheading"></p>
       </div>
       <div class="button-row" style="margin-bottom:0;">
         <a class="btn btn-primary" data-donation-link data-i18n="helpSection.ctaPrimary" href="#" target="_blank" rel="noopener"></a>
-        <a class="btn btn-secondary" href="events.html" data-i18n="helpSection.ctaSecondary" style="color: var(--forest); border-color: var(--forest);"></a>
+        <a class="btn btn-outline" href="events.html" data-i18n="helpSection.ctaSecondary"></a>
       </div>
     </div>
   </section>

@@ -18,6 +18,7 @@
     "statTeamLabel": "Persones a l'equip"
   },
   "challenge": {
+    "kicker": "el compromís",
     "heading": "El repte",
     "subheading": "En què ens hem ficat, i per què no serà fàcil.",
     "card1Title": "100 quilòmetres",
@@ -28,6 +29,7 @@
     "card3Body": "Cada aportació va directa a la nostra quota d'inscripció i als projectes d'aigua i sanejament d'Oxfam."
   },
   "cause": {
+    "kicker": "el perquè",
     "heading": "Per què ho fem",
     "subheading": "L'accés a l'aigua potable ho canvia tot: salut, educació, temps, dignitat.",
     "problemTitle": "El problema",
@@ -36,12 +38,14 @@
     "moneyBody": "Els fons recaptats a través de la nostra inscripció i els nostres esdeveniments donen suport als programes d'Oxfam que construeixen i mantenen pous, milloren el sanejament i ajuden les comunitats a gestionar l'aigua de manera sostenible."
   },
   "team": {
+    "kicker": "l'equip",
     "heading": "El nostre equip",
     "subheading": "Som {{teamName}}: 15 persones, 6 caminants oficials, un sol objectiu.",
     "roleWalker": "Caminant oficial",
     "roleOrganizer": "Equip organitzador"
   },
   "helpSection": {
+    "kicker": "suma-t'hi",
     "heading": "Ajuda'ns a arribar-hi",
     "subheading": "Dues maneres de donar suport al repte: col·labora directament, o apunta't a un dels nostres esdeveniments.",
     "ctaPrimary": "Col·labora ara",
@@ -51,14 +55,16 @@
     "contact": "Preguntes? Escriu-nos a"
   },
   "eventsPage": {
+    "kicker": "la ruta",
     "eyebrow": "Calendari de recaptació",
     "headline": "Vine a recaptar fons amb nosaltres",
     "lead": "Cada esdeveniment ens acosta a l'objectiu de la nostra cursa {{raceName}}. Porta amics, porta família — cada aportació compta.",
     "note": "Membres de l'equip: per afegir, editar o eliminar un esdeveniment, obriu data/events.json, copieu el format d'una entrada existent i deseu. La pàgina s'actualitza sola, no cal saber programar. Les dates fan servir el format AAAA-MM-DD.",
-    "upcomingHeading": "Propers esdeveniments",
-    "pastHeading": "Esdeveniments passats",
-    "emptyUpcoming": "Encara no hi ha esdeveniments programats — afegeix-ne un a data/events.json.",
-    "emptyPast": "Encara no hi ha esdeveniments passats.",
+    "timelineHeading": "El camí fins al repte",
+    "emptyState": "Encara no hi ha esdeveniments programats — afegeix-ne un a data/events.json.",
+    "raceDayTag": "Meta",
+    "raceDayTitle": "Dia de la cursa",
+    "raceDayBody": "Els {{raceDistance}}. Tot el que hem recaptat fins aquí, per a Oxfam.",
     "statusUpcoming": "Proper",
     "statusPast": "Passat",
     "footerContact": "Vols ajudar a organitzar el proper esdeveniment? Escriu-nos a"

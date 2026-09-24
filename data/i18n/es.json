@@ -18,6 +18,7 @@
     "statTeamLabel": "Personas en el equipo"
   },
   "challenge": {
+    "kicker": "el compromiso",
     "heading": "El reto",
     "subheading": "En qué nos hemos metido, y por qué no va a ser fácil.",
     "card1Title": "100 kilómetros",
@@ -28,6 +29,7 @@
     "card3Body": "Cada aportación va directa a nuestra cuota de inscripción y a los proyectos de agua y saneamiento de Oxfam."
   },
   "cause": {
+    "kicker": "el porqué",
     "heading": "Por qué lo hacemos",
     "subheading": "El acceso al agua potable lo cambia todo: salud, educación, tiempo, dignidad.",
     "problemTitle": "El problema",
@@ -36,12 +38,14 @@
     "moneyBody": "Los fondos recaudados a través de nuestra inscripción y nuestros eventos apoyan los programas de Oxfam que construyen y mantienen pozos, mejoran el saneamiento y ayudan a las comunidades a gestionar el agua de forma sostenible."
   },
   "team": {
+    "kicker": "el equipo",
     "heading": "Nuestro equipo",
     "subheading": "Somos {{teamName}}: 15 personas, 6 caminantes oficiales, un solo objetivo.",
     "roleWalker": "Caminante oficial",
     "roleOrganizer": "Equipo organizador"
   },
   "helpSection": {
+    "kicker": "súmate",
     "heading": "Ayúdanos a llegar",
     "subheading": "Dos maneras de apoyar el reto: colabora directamente, o apúntate a uno de nuestros eventos.",
     "ctaPrimary": "Colabora ahora",
@@ -51,14 +55,16 @@
     "contact": "¿Preguntas? Escríbenos a"
   },
   "eventsPage": {
+    "kicker": "la ruta",
     "eyebrow": "Calendario de recaudación",
     "headline": "Ven a recaudar fondos con nosotros",
     "lead": "Cada evento nos acerca a nuestro objetivo con el {{raceName}}. Trae amigos, trae familia — cada aportación cuenta.",
     "note": "Miembros del equipo: para añadir, editar o eliminar un evento, abrid data/events.json, copiad el formato de una entrada existente y guardad. La página se actualiza sola, no hace falta saber programar. Las fechas usan el formato AAAA-MM-DD.",
-    "upcomingHeading": "Próximos eventos",
-    "pastHeading": "Eventos pasados",
-    "emptyUpcoming": "Todavía no hay eventos programados — añade uno en data/events.json.",
-    "emptyPast": "Todavía no hay eventos pasados.",
+    "timelineHeading": "El camino hasta el reto",
+    "emptyState": "Todavía no hay eventos programados — añade uno en data/events.json.",
+    "raceDayTag": "Meta",
+    "raceDayTitle": "Día de la carrera",
+    "raceDayBody": "Los {{raceDistance}}. Todo lo recaudado hasta aquí, para Oxfam.",
     "statusUpcoming": "Próximo",
     "statusPast": "Pasado",
     "footerContact": "¿Quieres ayudar a organizar el próximo evento? Escríbenos a"

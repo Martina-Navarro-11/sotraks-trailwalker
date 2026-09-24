@@ -45,6 +45,34 @@ function formatDate(dateStr, lang, options) {
   return d.toLocaleDateString(localeFor(lang), options);
 }
 
+const MONTH_NAMES = {
+  es: ["enero", "febrero", "marzo", "abril", "mayo", "junio", "julio", "agosto", "septiembre", "octubre", "noviembre", "diciembre"],
+  ca: ["gener", "febrer", "març", "abril", "maig", "juny", "juliol", "agost", "setembre", "octubre", "novembre", "desembre"],
+};
+
+function formatRaceDate(config, lang) {
+  if (!config.raceDateEnd || config.raceDateEnd === config.raceDate) {
+    return formatDate(config.raceDate, lang, { day: "numeric", month: "long", year: "numeric" });
+  }
+  const start = new Date(config.raceDate + "T00:00:00");
+  const end = new Date(config.raceDateEnd + "T00:00:00");
+  const sameMonth = start.getMonth() === end.getMonth() && start.getFullYear() === end.getFullYear();
+
+  if (!sameMonth) {
+    const startFmt = formatDate(config.raceDate, lang, { day: "numeric", month: "long" });
+    const endFmt = formatDate(config.raceDateEnd, lang, { day: "numeric", month: "long", year: "numeric" });
+    return `${startFmt} - ${endFmt}`;
+  }
+
+  const month = MONTH_NAMES[lang][end.getMonth()];
+  const year = end.getFullYear();
+  if (lang === "ca") {
+    const monthPhrase = /^[aeiouAEIOU]/.test(month) ? `d'${month}` : `de ${month}`;
+    return `${start.getDate()} i ${end.getDate()} ${monthPhrase} de ${year}`;
+  }
+  return `${start.getDate()} y ${end.getDate()} de ${month} de ${year}`;
+}
+
 function groupThousands(n) {
   return Math.round(n).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 }
@@ -65,7 +93,7 @@ function buildVars(config, lang) {
     teamName: config.teamName,
     raceName: config.raceName,
     raceDistance: config.raceDistance,
-    raceDate: formatDate(config.raceDate, lang, { day: "numeric", month: "long", year: "numeric" }),
+    raceDate: formatRaceDate(config, lang),
     raceLocation: config.raceLocation,
     raised: formatCurrency(config.fundraisingRaised, config, lang),
     goal: formatCurrency(config.fundraisingGoal, config, lang),
@@ -148,11 +176,11 @@ function renderTeam(config, translations) {
       const roleClass = m.role === "walker" ? "role-walker" : "role-organizer";
       return `
       <div class="card team-card ${roleClass} reveal" style="transition-delay:${Math.min(idx * 50, 400)}ms">
+        <span class="role-tag">${t(translations, roleKey)}</span>
         <div class="team-photo">${
           m.photo ? `<img src="${m.photo}" alt="${m.name}">` : m.name.charAt(0)
         }</div>
         <h3>${m.name}</h3>
-        <span class="event-status upcoming">${t(translations, roleKey)}</span>
         <p>${m.bio}</p>
       </div>`;
     })
@@ -186,6 +214,9 @@ function observeReveals() {
 }
 
 window.__observeReveals = observeReveals;
+window.__formatRaceDate = formatRaceDate;
+window.__interpolate = interpolate;
+window.__buildVars = buildVars;
 
 /* Nav interactions */
 function setupNavToggle() {
