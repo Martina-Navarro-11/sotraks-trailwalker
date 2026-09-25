@@ -112,6 +112,7 @@ function daysUntil(dateStr) {
 function buildVars(config, lang) {
   return {
     teamName: config.teamName,
+    teamCount: (config.teamMembers || []).length,
     raceName: config.raceName,
     raceDistance: config.raceDistance,
     raceDate: formatRaceDate(config, lang),
@@ -184,19 +185,14 @@ function renderTeam(config, translations) {
   const wrap = document.querySelector("[data-team-list]");
   if (!wrap) return;
   wrap.innerHTML = (config.teamMembers || [])
-    .map((m, idx) => {
-      const roleKey = m.role === "walker" ? "team.roleWalker" : "team.roleOrganizer";
-      const roleClass = m.role === "walker" ? "role-walker" : "role-organizer";
-      return `
-      <div class="card team-card ${roleClass} reveal" style="transition-delay:${Math.min(idx * 50, 400)}ms">
-        <span class="role-tag">${t(translations, roleKey)}</span>
+    .map((m, idx) => `
+      <div class="card team-card reveal" style="transition-delay:${Math.min(idx * 50, 400)}ms">
         <div class="team-photo">${
           m.photo ? `<img src="${m.photo}" alt="${m.name}">` : m.name.charAt(0)
         }</div>
         <h3>${m.name}</h3>
-        <p>${m.bio}</p>
-      </div>`;
-    })
+        ${m.bio ? `<p>${m.bio}</p>` : ""}
+      </div>`)
     .join("");
   observeReveals();
 }

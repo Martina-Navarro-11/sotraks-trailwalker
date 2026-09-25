@@ -4,7 +4,7 @@ Una web sencilla para explicar el reto, la causa, y coordinar los eventos de rec
 
 ## Editar el contenido
 
-- **`data/config.json`** — nombre del equipo, fecha/lugar de la carrera, objetivo y cantidad recaudada, email y teléfono de contacto, datos de pago (`payment`), redes sociales, y la lista de los 15 miembros del equipo (nombre, `role`: `"walker"` para los 6 caminantes oficiales o `"organizer"` para el resto, bio y foto).
+- **`data/config.json`** — nombre del equipo, fecha/lugar de la carrera, objetivo y cantidad recaudada, email y teléfono de contacto, datos de pago (`payment`), redes sociales, y la lista del equipo (`teamMembers`: nombre, frase en `bio` y `photo`). Si `bio` o `photo` están vacíos, no se muestra la frase y en su lugar sale la inicial del nombre. Los "15" que salen en los textos se calculan solos a partir de esta lista.
 - **`data/events.json`** — la lista de eventos de recaudación que aparece en la página de Eventos. Copia una entrada existente y cambia los datos. Las fechas van en formato `AAAA-MM-DD`. El campo `price` es el precio de la entrada en euros (por persona); si lo dejas en `0` o lo quitas, el total sale como "por confirmar".
 
 Guarda el archivo y recarga la página — ya está.
@@ -55,7 +55,7 @@ Y abre `http://localhost:8000` en el navegador.
 
 ## Pendiente de rellenar
 
-- [ ] `data/config.json`: fecha y lugar reales de la carrera, objetivo de recaudación, email de contacto, nombres y bios reales de los 15 miembros
+- [ ] `data/config.json`: fecha y lugar reales de la carrera, objetivo de recaudación, email de contacto, frases (`bio`) y fotos de cada miembro
 - [ ] `data/events.json`: vuestros eventos reales de recaudación
 - [ ] Fotos del equipo en `images/`
 - [ ] `data/config.json`: `payment` (Bizum / Revolut / IBAN) y `contactPhone` para recibir las inscripciones por WhatsApp

@@ -23,8 +23,8 @@
     "subheading": "En qué nos hemos metido, y por qué no va a ser fácil.",
     "card1Title": "100 kilómetros",
     "card1Body": "Caminados de un tirón, de día y de noche, en equipo — nadie cruza la meta solo.",
-    "card2Title": "Un equipo de 15",
-    "card2Body": "En {{teamName}} somos 15: 6 caminantes oficiales sobre el terreno y todo el equipo trabajando en la organización y la recaudación.",
+    "card2Title": "Un equipo de {{teamCount}}",
+    "card2Body": "En {{teamName}} somos {{teamCount}} amigos con un mismo objetivo: llegar juntos a la meta y hacerlo posible entre todos.",
     "card3Title": "100% para Oxfam",
     "card3Body": "Lo que se paga en cada entrada va directo a nuestra cuota de inscripción y a los proyectos de agua y saneamiento de Oxfam."
   },
@@ -40,9 +40,7 @@
   "team": {
     "kicker": "el equipo",
     "heading": "Nuestro equipo",
-    "subheading": "Somos {{teamName}}: 15 personas, 6 caminantes oficiales, un solo objetivo.",
-    "roleWalker": "Caminante oficial",
-    "roleOrganizer": "Equipo organizador"
+    "subheading": "Somos {{teamName}}: {{teamCount}} amigos, un solo objetivo."
   },
   "helpSection": {
     "kicker": "súmate",
@@ -59,7 +57,6 @@
     "eyebrow": "Calendario de recaudación",
     "headline": "Ven a recaudar fondos con nosotros",
     "lead": "Cada evento nos acerca a nuestro objetivo con el {{raceName}}. Trae amigos, trae familia — cada entrada cuenta.",
-    "note": "Miembros del equipo: para añadir, editar o eliminar un evento, abrid data/events.json, copiad el formato de una entrada existente y guardad. La página se actualiza sola, no hace falta saber programar. Las fechas usan el formato AAAA-MM-DD.",
     "timelineHeading": "El camino hasta el reto",
     "emptyState": "Todavía no hay eventos programados — añade uno en data/events.json.",
     "raceDayTag": "Meta",

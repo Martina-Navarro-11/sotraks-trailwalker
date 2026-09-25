@@ -23,8 +23,8 @@
     "subheading": "En què ens hem ficat, i per què no serà fàcil.",
     "card1Title": "100 quilòmetres",
     "card1Body": "Caminats d'una tirada, de dia i de nit, en equip — ningú creua la meta sol.",
-    "card2Title": "Un equip de 15",
-    "card2Body": "A {{teamName}} som 15: 6 caminants oficials sobre el terreny i tot l'equip treballant en l'organització i la recaptació.",
+    "card2Title": "Un equip de {{teamCount}}",
+    "card2Body": "A {{teamName}} som {{teamCount}} amics amb un mateix objectiu: arribar junts a la meta i fer-ho possible entre tots.",
     "card3Title": "100% per a Oxfam",
     "card3Body": "El que es paga a cada entrada va directe a la nostra quota d'inscripció i als projectes d'aigua i sanejament d'Oxfam."
   },
@@ -40,9 +40,7 @@
   "team": {
     "kicker": "l'equip",
     "heading": "El nostre equip",
-    "subheading": "Som {{teamName}}: 15 persones, 6 caminants oficials, un sol objectiu.",
-    "roleWalker": "Caminant oficial",
-    "roleOrganizer": "Equip organitzador"
+    "subheading": "Som {{teamName}}: {{teamCount}} amics, un sol objectiu."
   },
   "helpSection": {
     "kicker": "suma-t'hi",
@@ -59,7 +57,6 @@
     "eyebrow": "Calendari de recaptació",
     "headline": "Vine a recaptar fons amb nosaltres",
     "lead": "Cada esdeveniment ens acosta a l'objectiu de la nostra cursa {{raceName}}. Porta amics, porta família — cada entrada compta.",
-    "note": "Membres de l'equip: per afegir, editar o eliminar un esdeveniment, obriu data/events.json, copieu el format d'una entrada existent i deseu. La pàgina s'actualitza sola, no cal saber programar. Les dates fan servir el format AAAA-MM-DD.",
     "timelineHeading": "El camí fins al repte",
     "emptyState": "Encara no hi ha esdeveniments programats — afegeix-ne un a data/events.json.",
     "raceDayTag": "Meta",
