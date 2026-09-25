@@ -4,13 +4,13 @@
     "cause": "La Causa",
     "team": "El Nostre Equip",
     "events": "Esdeveniments",
-    "cta": "Col·labora"
+    "cta": "Apunta't"
   },
   "hero": {
     "eyebrow": "100 KM · UNA NIT · UNA CAUSA",
     "headline": "Caminem {{raceDistance}} per Oxfam",
     "lead": "{{teamName}} afronta el repte {{raceName}} el {{raceDate}} a {{raceLocation}}. Tot el que recaptem es destina a la feina d'Oxfam per portar aigua potable i pous a les comunitats que més ho necessiten.",
-    "ctaPrimary": "Col·labora",
+    "ctaPrimary": "Apunta't a un esdeveniment",
     "ctaSecondary": "Veure els nostres esdeveniments",
     "statGoalLabel": "Objectiu",
     "statRaisedLabel": "Recaptat",
@@ -26,7 +26,7 @@
     "card2Title": "Un equip de 15",
     "card2Body": "A {{teamName}} som 15: 6 caminants oficials sobre el terreny i tot l'equip treballant en l'organització i la recaptació.",
     "card3Title": "100% per a Oxfam",
-    "card3Body": "Cada aportació va directa a la nostra quota d'inscripció i als projectes d'aigua i sanejament d'Oxfam."
+    "card3Body": "El que es paga a cada entrada va directe a la nostra quota d'inscripció i als projectes d'aigua i sanejament d'Oxfam."
   },
   "cause": {
     "kicker": "el perquè",
@@ -46,10 +46,10 @@
   },
   "helpSection": {
     "kicker": "suma-t'hi",
-    "heading": "Ajuda'ns a arribar-hi",
-    "subheading": "Dues maneres de donar suport al repte: col·labora directament, o apunta't a un dels nostres esdeveniments.",
-    "ctaPrimary": "Col·labora ara",
-    "ctaSecondary": "Propers esdeveniments"
+    "heading": "Vine amb nosaltres",
+    "subheading": "Cada esdeveniment és una excusa per passar-ho bé i apropar-nos una mica més a la meta. Tria el teu i reserva la teva plaça.",
+    "ctaPrimary": "Reserva la teva plaça",
+    "ctaSecondary": "Veure el calendari"
   },
   "footerHome": {
     "contact": "Preguntes? Escriu-nos a"
@@ -58,7 +58,7 @@
     "kicker": "la ruta",
     "eyebrow": "Calendari de recaptació",
     "headline": "Vine a recaptar fons amb nosaltres",
-    "lead": "Cada esdeveniment ens acosta a l'objectiu de la nostra cursa {{raceName}}. Porta amics, porta família — cada aportació compta.",
+    "lead": "Cada esdeveniment ens acosta a l'objectiu de la nostra cursa {{raceName}}. Porta amics, porta família — cada entrada compta.",
     "note": "Membres de l'equip: per afegir, editar o eliminar un esdeveniment, obriu data/events.json, copieu el format d'una entrada existent i deseu. La pàgina s'actualitza sola, no cal saber programar. Les dates fan servir el format AAAA-MM-DD.",
     "timelineHeading": "El camí fins al repte",
     "emptyState": "Encara no hi ha esdeveniments programats — afegeix-ne un a data/events.json.",
@@ -67,6 +67,45 @@
     "raceDayBody": "Els {{raceDistance}}. Tot el que hem recaptat fins aquí, per a Oxfam.",
     "statusUpcoming": "Proper",
     "statusPast": "Passat",
-    "footerContact": "Vols ajudar a organitzar el proper esdeveniment? Escriu-nos a"
+    "footerContact": "Vols ajudar a organitzar el proper esdeveniment? Escriu-nos a",
+    "signUp": "Apunta't"
+  },
+  "signup": {
+    "kicker": "el pla",
+    "eyebrow": "Inscripció",
+    "headline": "Reserva la teva plaça",
+    "lead": "Tria l'esdeveniment, explica'ns qui ve i et donem les dades per confirmar. Cada entrada suma quilòmetres per al repte.",
+    "formHeading": "Les teves dades",
+    "eventLabel": "Esdeveniment",
+    "eventPlaceholder": "Tria un esdeveniment",
+    "nameLabel": "Nom i cognoms",
+    "emailLabel": "Correu electrònic",
+    "phoneLabel": "Telèfon (WhatsApp)",
+    "peopleLabel": "Persones",
+    "commentLabel": "Alguna cosa que hàgim de saber? (opcional)",
+    "commentShort": "Comentari",
+    "privacy": "No desem les teves dades al web: s'envien per missatge a l'equip organitzador només per gestionar la teva plaça.",
+    "submit": "Continuar",
+    "noEvents": "Ara mateix no hi ha esdeveniments oberts. Torna aviat o escriu-nos!",
+    "payHeading": "Últim pas: confirma la teva plaça",
+    "payLead": "Fes el pagament amb el mètode que et vagi millor i avisa'ns amb el botó de sota.",
+    "summaryEvent": "Esdeveniment",
+    "summaryPeople": "Persones",
+    "summaryTotal": "Total",
+    "toConfirm": "Per confirmar",
+    "conceptLabel": "Concepte",
+    "bizum": "Bizum",
+    "transfer": "Transferència",
+    "holder": "Titular",
+    "copy": "Copiar",
+    "copied": "Copiat!",
+    "revolutBtn": "Pagar amb Revolut",
+    "noPayment": "T'enviarem les dades de pagament per missatge quan ens avisis.",
+    "confirmWhatsapp": "Avisar per WhatsApp",
+    "confirmEmail": "Avisar per correu",
+    "edit": "Editar les meves dades",
+    "afterNote": "La teva plaça queda reservada quan confirmem el pagament. Ens veiem allà!",
+    "waIntro": "Hola SOTRAKS! Vull apuntar-me a «{{event}}» ({{date}}).",
+    "mailSubject": "Inscripció: {{event}}"
   }
 }

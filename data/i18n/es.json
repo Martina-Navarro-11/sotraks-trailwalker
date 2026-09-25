@@ -4,13 +4,13 @@
     "cause": "La Causa",
     "team": "Nuestro Equipo",
     "events": "Eventos",
-    "cta": "Colabora"
+    "cta": "Apúntate"
   },
   "hero": {
     "eyebrow": "100 KM · UNA NOCHE · UNA CAUSA",
     "headline": "Caminamos {{raceDistance}} por Oxfam",
     "lead": "{{teamName}} afronta el reto {{raceName}} el {{raceDate}} en {{raceLocation}}. Todo lo recaudado se destina al trabajo de Oxfam para llevar agua potable y pozos a las comunidades que más lo necesitan.",
-    "ctaPrimary": "Apóyanos",
+    "ctaPrimary": "Apúntate a un evento",
     "ctaSecondary": "Ver nuestros eventos",
     "statGoalLabel": "Objetivo",
     "statRaisedLabel": "Recaudado",
@@ -26,7 +26,7 @@
     "card2Title": "Un equipo de 15",
     "card2Body": "En {{teamName}} somos 15: 6 caminantes oficiales sobre el terreno y todo el equipo trabajando en la organización y la recaudación.",
     "card3Title": "100% para Oxfam",
-    "card3Body": "Cada aportación va directa a nuestra cuota de inscripción y a los proyectos de agua y saneamiento de Oxfam."
+    "card3Body": "Lo que se paga en cada entrada va directo a nuestra cuota de inscripción y a los proyectos de agua y saneamiento de Oxfam."
   },
   "cause": {
     "kicker": "el porqué",
@@ -46,10 +46,10 @@
   },
   "helpSection": {
     "kicker": "súmate",
-    "heading": "Ayúdanos a llegar",
-    "subheading": "Dos maneras de apoyar el reto: colabora directamente, o apúntate a uno de nuestros eventos.",
-    "ctaPrimary": "Colabora ahora",
-    "ctaSecondary": "Próximos eventos"
+    "heading": "Ven con nosotros",
+    "subheading": "Cada evento es una excusa para pasarlo bien y acercarnos un poco más a la meta. Elige el tuyo y reserva tu plaza.",
+    "ctaPrimary": "Reserva tu plaza",
+    "ctaSecondary": "Ver el calendario"
   },
   "footerHome": {
     "contact": "¿Preguntas? Escríbenos a"
@@ -58,7 +58,7 @@
     "kicker": "la ruta",
     "eyebrow": "Calendario de recaudación",
     "headline": "Ven a recaudar fondos con nosotros",
-    "lead": "Cada evento nos acerca a nuestro objetivo con el {{raceName}}. Trae amigos, trae familia — cada aportación cuenta.",
+    "lead": "Cada evento nos acerca a nuestro objetivo con el {{raceName}}. Trae amigos, trae familia — cada entrada cuenta.",
     "note": "Miembros del equipo: para añadir, editar o eliminar un evento, abrid data/events.json, copiad el formato de una entrada existente y guardad. La página se actualiza sola, no hace falta saber programar. Las fechas usan el formato AAAA-MM-DD.",
     "timelineHeading": "El camino hasta el reto",
     "emptyState": "Todavía no hay eventos programados — añade uno en data/events.json.",
@@ -67,6 +67,45 @@
     "raceDayBody": "Los {{raceDistance}}. Todo lo recaudado hasta aquí, para Oxfam.",
     "statusUpcoming": "Próximo",
     "statusPast": "Pasado",
-    "footerContact": "¿Quieres ayudar a organizar el próximo evento? Escríbenos a"
+    "footerContact": "¿Quieres ayudar a organizar el próximo evento? Escríbenos a",
+    "signUp": "Apúntate"
+  },
+  "signup": {
+    "kicker": "el plan",
+    "eyebrow": "Inscripción",
+    "headline": "Reserva tu plaza",
+    "lead": "Elige el evento, cuéntanos quién viene y te damos los datos para confirmar. Cada entrada suma kilómetros para el reto.",
+    "formHeading": "Tus datos",
+    "eventLabel": "Evento",
+    "eventPlaceholder": "Elige un evento",
+    "nameLabel": "Nombre y apellidos",
+    "emailLabel": "Email",
+    "phoneLabel": "Teléfono (WhatsApp)",
+    "peopleLabel": "Personas",
+    "commentLabel": "¿Algo que debamos saber? (opcional)",
+    "commentShort": "Comentario",
+    "privacy": "No guardamos tus datos en la web: se envían por mensaje al equipo organizador solo para gestionar tu plaza.",
+    "submit": "Continuar",
+    "noEvents": "Ahora mismo no hay eventos abiertos. ¡Vuelve pronto o escríbenos!",
+    "payHeading": "Último paso: confirma tu plaza",
+    "payLead": "Haz el pago con el método que te venga mejor y avísanos con el botón de abajo.",
+    "summaryEvent": "Evento",
+    "summaryPeople": "Personas",
+    "summaryTotal": "Total",
+    "toConfirm": "Por confirmar",
+    "conceptLabel": "Concepto",
+    "bizum": "Bizum",
+    "transfer": "Transferencia",
+    "holder": "Titular",
+    "copy": "Copiar",
+    "copied": "¡Copiado!",
+    "revolutBtn": "Pagar con Revolut",
+    "noPayment": "Te enviaremos los datos de pago por mensaje en cuanto nos avises.",
+    "confirmWhatsapp": "Avisar por WhatsApp",
+    "confirmEmail": "Avisar por email",
+    "edit": "Editar mis datos",
+    "afterNote": "Tu plaza queda reservada cuando confirmemos el pago. ¡Nos vemos allí!",
+    "waIntro": "¡Hola SOTRAKS! Quiero apuntarme a «{{event}}» ({{date}}).",
+    "mailSubject": "Inscripción: {{event}}"
   }
 }

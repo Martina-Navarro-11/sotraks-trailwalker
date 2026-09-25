@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>SOTRAKS · Eventos</title>
+  <title>SOTRAKS · Inscripción</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Space+Mono:wght@400;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -35,38 +35,82 @@
 
   <section class="hero">
     <div class="container">
-      <div class="eyebrow" data-i18n="eventsPage.eyebrow"></div>
-      <h1 data-i18n="eventsPage.headline"></h1>
+      <div class="eyebrow" data-i18n="signup.eyebrow"></div>
+      <h1 data-i18n="signup.headline"></h1>
       <svg class="trail-underline" viewBox="0 0 220 26" aria-hidden="true">
         <path d="M6,14 C20,3 34,25 48,14 C62,3 76,25 90,14 C104,3 118,25 132,14 C146,3 160,25 174,14 C188,3 202,14 214,14" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
         <circle cx="6" cy="14" r="4" fill="currentColor"/>
         <circle cx="214" cy="14" r="4" fill="currentColor"/>
       </svg>
-      <p class="lead" data-i18n="eventsPage.lead"></p>
+      <p class="lead" data-i18n="signup.lead"></p>
     </div>
     <div class="hero-cut" aria-hidden="true"></div>
   </section>
 
-  <section>
-    <div class="container">
-      <div class="note-box reveal" data-i18n="eventsPage.note"></div>
+  <section class="signup">
+    <div class="container narrow">
 
-      <div class="section-heading reveal" style="text-align:left; margin-bottom:40px;">
-        <div class="kicker" data-i18n="eventsPage.kicker"></div>
-        <h2 data-i18n="eventsPage.timelineHeading"></h2>
+      <p class="form-card" data-no-events hidden><span data-i18n="signup.noEvents"></span> <a data-contact-email href="#"></a></p>
+
+      <div class="form-card" data-step-form>
+        <div class="kicker" data-i18n="signup.kicker"></div>
+        <h2 data-i18n="signup.formHeading"></h2>
+
+        <form data-signup-form>
+          <div class="field">
+            <label for="event" data-i18n="signup.eventLabel"></label>
+            <select id="event" required>
+              <option value="" data-i18n="signup.eventPlaceholder"></option>
+            </select>
+          </div>
+
+          <div class="field">
+            <label for="fullName" data-i18n="signup.nameLabel"></label>
+            <input id="fullName" type="text" autocomplete="name" required>
+          </div>
+
+          <div class="field-row">
+            <div class="field">
+              <label for="email" data-i18n="signup.emailLabel"></label>
+              <input id="email" type="email" autocomplete="email" required>
+            </div>
+            <div class="field">
+              <label for="phone" data-i18n="signup.phoneLabel"></label>
+              <input id="phone" type="tel" autocomplete="tel">
+            </div>
+          </div>
+
+          <div class="field field-small">
+            <label for="people" data-i18n="signup.peopleLabel"></label>
+            <input id="people" type="number" min="1" max="20" value="1" required>
+          </div>
+
+          <div class="field">
+            <label for="comment" data-i18n="signup.commentLabel"></label>
+            <textarea id="comment" rows="3"></textarea>
+          </div>
+
+          <p class="form-note" data-i18n="signup.privacy"></p>
+
+          <button class="btn btn-solid" type="submit" data-i18n="signup.submit"></button>
+        </form>
       </div>
-      <div class="trail" data-timeline></div>
+
+      <div class="form-card" data-step-pay hidden>
+        <div data-pay-panel></div>
+      </div>
+
     </div>
   </section>
 
   <footer class="site-footer">
     <div class="container">
-      <p><span data-i18n="eventsPage.footerContact"></span> <a data-contact-email href="#"></a></p>
+      <p><span data-i18n="footerHome.contact"></span> <a data-contact-email href="#"></a></p>
       <div class="socials" data-socials></div>
     </div>
   </footer>
 
   <script src="js/site.js"></script>
-  <script src="js/events.js"></script>
+  <script src="js/signup.js"></script>
 </body>
 </html>

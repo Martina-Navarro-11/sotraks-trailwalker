@@ -15,7 +15,7 @@ function renderEvents(events) {
   const localeMap = { es: "es-ES", ca: "ca-ES" };
   const locale = localeMap[lang] || "es-ES";
 
-  const today = new Date().toISOString().slice(0, 10);
+  const today = localToday();
   const sorted = [...events].sort((a, b) => a.date.localeCompare(b.date));
 
   const label = (path, fallback) =>
@@ -35,8 +35,13 @@ function renderEvents(events) {
         <div class="card event-card">
           <span class="event-status ${isPast ? "past" : "upcoming"}">${statusLabel}</span>
           <h3>${e.title}</h3>
-          <div class="event-meta">${day} ${month} &middot; ${e.time ? e.time + " &middot; " : ""}${e.location || ""}</div>
+          <div class="event-meta">${day} ${month} &middot; ${e.time ? e.time + " &middot; " : ""}${e.location || ""}${e.price > 0 ? " &middot; " + formatMoney(e.price, config) : ""}</div>
           <p>${e.description || ""}</p>
+          ${
+            isPast
+              ? ""
+              : `<div class="event-actions"><a class="btn btn-outline btn-small" href="inscripcion.html?evento=${encodeURIComponent(eventKey(e))}">${label("eventsPage.signUp", "Apúntate")}</a></div>`
+          }
         </div>
       </div>`;
   };

@@ -8,28 +8,34 @@
   "currency": "€",
   "fundraisingGoal": 3000,
   "fundraisingRaised": 0,
-  "donationUrl": "",
   "contactEmail": "sotraks@example.com",
+  "contactPhone": "",
+  "payment": {
+    "bizum": "",
+    "revolut": "",
+    "iban": "",
+    "holder": ""
+  },
   "socialLinks": {
     "instagram": "",
     "facebook": "",
     "whatsapp": ""
   },
   "teamMembers": [
-    { "name": "Miembro 1", "role": "walker", "bio": "Añade aquí una frase o dato curioso.", "photo": "" },
-    { "name": "Miembro 2", "role": "walker", "bio": "Añade aquí una frase o dato curioso.", "photo": "" },
-    { "name": "Miembro 3", "role": "walker", "bio": "Añade aquí una frase o dato curioso.", "photo": "" },
-    { "name": "Miembro 4", "role": "walker", "bio": "Añade aquí una frase o dato curioso.", "photo": "" },
-    { "name": "Miembro 5", "role": "walker", "bio": "Añade aquí una frase o dato curioso.", "photo": "" },
-    { "name": "Miembro 6", "role": "walker", "bio": "Añade aquí una frase o dato curioso.", "photo": "" },
-    { "name": "Miembro 7", "role": "organizer", "bio": "Añade aquí una frase o dato curioso.", "photo": "" },
-    { "name": "Miembro 8", "role": "organizer", "bio": "Añade aquí una frase o dato curioso.", "photo": "" },
-    { "name": "Miembro 9", "role": "organizer", "bio": "Añade aquí una frase o dato curioso.", "photo": "" },
-    { "name": "Miembro 10", "role": "organizer", "bio": "Añade aquí una frase o dato curioso.", "photo": "" },
-    { "name": "Miembro 11", "role": "organizer", "bio": "Añade aquí una frase o dato curioso.", "photo": "" },
-    { "name": "Miembro 12", "role": "organizer", "bio": "Añade aquí una frase o dato curioso.", "photo": "" },
-    { "name": "Miembro 13", "role": "organizer", "bio": "Añade aquí una frase o dato curioso.", "photo": "" },
-    { "name": "Miembro 14", "role": "organizer", "bio": "Añade aquí una frase o dato curioso.", "photo": "" },
-    { "name": "Miembro 15", "role": "organizer", "bio": "Añade aquí una frase o dato curioso.", "photo": "" }
+    {"name": "Miembro 1", "role": "walker", "bio": "Añade aquí una frase o dato curioso.", "photo": ""},
+    {"name": "Miembro 2", "role": "walker", "bio": "Añade aquí una frase o dato curioso.", "photo": ""},
+    {"name": "Miembro 3", "role": "walker", "bio": "Añade aquí una frase o dato curioso.", "photo": ""},
+    {"name": "Miembro 4", "role": "walker", "bio": "Añade aquí una frase o dato curioso.", "photo": ""},
+    {"name": "Miembro 5", "role": "walker", "bio": "Añade aquí una frase o dato curioso.", "photo": ""},
+    {"name": "Miembro 6", "role": "walker", "bio": "Añade aquí una frase o dato curioso.", "photo": ""},
+    {"name": "Miembro 7", "role": "organizer", "bio": "Añade aquí una frase o dato curioso.", "photo": ""},
+    {"name": "Miembro 8", "role": "organizer", "bio": "Añade aquí una frase o dato curioso.", "photo": ""},
+    {"name": "Miembro 9", "role": "organizer", "bio": "Añade aquí una frase o dato curioso.", "photo": ""},
+    {"name": "Miembro 10", "role": "organizer", "bio": "Añade aquí una frase o dato curioso.", "photo": ""},
+    {"name": "Miembro 11", "role": "organizer", "bio": "Añade aquí una frase o dato curioso.", "photo": ""},
+    {"name": "Miembro 12", "role": "organizer", "bio": "Añade aquí una frase o dato curioso.", "photo": ""},
+    {"name": "Miembro 13", "role": "organizer", "bio": "Añade aquí una frase o dato curioso.", "photo": ""},
+    {"name": "Miembro 14", "role": "organizer", "bio": "Añade aquí una frase o dato curioso.", "photo": ""},
+    {"name": "Miembro 15", "role": "organizer", "bio": "Añade aquí una frase o dato curioso.", "photo": ""}
   ]
 }

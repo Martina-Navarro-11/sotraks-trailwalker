@@ -5,7 +5,7 @@
     "time": "10:00",
     "location": "Añade la ubicación",
     "description": "¡Nuestro primer evento solidario! Bizcochos y galletas caseras: todo lo recaudado va directo a nuestro fondo para el Trailwalker.",
-    "status": "upcoming"
+    "price": 5
   },
   {
     "title": "Caminata de entrenamiento solidaria",
@@ -13,7 +13,7 @@
     "time": "08:00",
     "location": "Añade la ubicación",
     "description": "Una caminata de entrenamiento de 20 km abierta a amigos y familia. Patrocínanos por kilómetro o únete a caminar con nosotros.",
-    "status": "upcoming"
+    "price": 10
   },
   {
     "title": "Noche de trivial",
@@ -21,6 +21,6 @@
     "time": "19:30",
     "location": "Añade la ubicación",
     "description": "Concurso de preguntas con premios. La entrada se dona íntegra a la campaña.",
-    "status": "upcoming"
+    "price": 8
   }
 ]

@@ -4,12 +4,25 @@ Una web sencilla para explicar el reto, la causa, y coordinar los eventos de rec
 
 ## Editar el contenido
 
-- **`data/config.json`** — nombre del equipo, fecha/lugar de la carrera, objetivo y cantidad recaudada, enlace de colaboración, email de contacto, redes sociales, y la lista de los 15 miembros del equipo (nombre, `role`: `"walker"` para los 6 caminantes oficiales o `"organizer"` para el resto, bio y foto).
-- **`data/events.json`** — la lista de eventos de recaudación que aparece en la página de Eventos. Copia una entrada existente y cambia los datos. Las fechas van en formato `AAAA-MM-DD`.
+- **`data/config.json`** — nombre del equipo, fecha/lugar de la carrera, objetivo y cantidad recaudada, email y teléfono de contacto, datos de pago (`payment`), redes sociales, y la lista de los 15 miembros del equipo (nombre, `role`: `"walker"` para los 6 caminantes oficiales o `"organizer"` para el resto, bio y foto).
+- **`data/events.json`** — la lista de eventos de recaudación que aparece en la página de Eventos. Copia una entrada existente y cambia los datos. Las fechas van en formato `AAAA-MM-DD`. El campo `price` es el precio de la entrada en euros (por persona); si lo dejas en `0` o lo quitas, el total sale como "por confirmar".
 
 Guarda el archivo y recarga la página — ya está.
 
 Las fotos van en la carpeta `images/`; se referencian desde `config.json` así: `"photo": "images/tunombre.jpg"`.
+
+## Inscripción y pagos
+
+Todos los botones de la web ("Apúntate", "Reserva tu plaza"…) llevan a `inscripcion.html`: la persona elige un evento, rellena un formulario corto y, en el último paso, ve los datos para pagar y un botón para avisaros.
+
+- **Los datos no se guardan en ningún sitio**: al terminar, el botón abre un WhatsApp (o un email) ya escrito con la inscripción para vosotros. Así no hay base de datos ni que cumplir con almacenar datos personales en la web.
+- **Datos de pago** — en `data/config.json`, dentro de `payment`. Solo aparecen los que rellenéis:
+  - `bizum`: teléfono de Bizum
+  - `revolut`: enlace tipo `https://revolut.me/tunombre`
+  - `iban` y `holder`: IBAN y nombre del titular para transferencia
+  Si no rellenáis ninguno, la web dice que les enviaréis los datos por mensaje.
+- **Dónde os llegan los avisos** — `contactPhone` (WhatsApp, con prefijo, por ejemplo `34600111222`). Si está vacío, el aviso se envía por email a `contactEmail`.
+- Los eventos ya pasados no aparecen en el formulario.
 
 ## Idiomas (castellano / catalán)
 
@@ -45,4 +58,5 @@ Y abre `http://localhost:8000` en el navegador.
 - [ ] `data/config.json`: fecha y lugar reales de la carrera, objetivo de recaudación, email de contacto, nombres y bios reales de los 15 miembros
 - [ ] `data/events.json`: vuestros eventos reales de recaudación
 - [ ] Fotos del equipo en `images/`
-- [ ] Enlace real de colaboración (Bizum, Revolut.me, o lo que decidáis) una vez cerréis ese tema
+- [ ] `data/config.json`: `payment` (Bizum / Revolut / IBAN) y `contactPhone` para recibir las inscripciones por WhatsApp
+- [ ] `data/events.json`: precio (`price`) real de cada evento

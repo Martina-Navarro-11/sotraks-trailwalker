@@ -81,6 +81,27 @@ function formatCurrency(amount, config) {
   return `${config.currency}${groupThousands(amount)}`;
 }
 
+function formatMoney(amount, config) {
+  if (Number.isInteger(amount)) return formatCurrency(amount, config);
+  return `${config.currency}${amount.toFixed(2).replace(".", ",")}`;
+}
+
+function localToday() {
+  const d = new Date();
+  const pad = (n) => String(n).padStart(2, "0");
+  return `${d.getFullYear()}-${pad(d.getMonth() + 1)}-${pad(d.getDate())}`;
+}
+
+function eventKey(e) {
+  const slug = e.title
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-+|-+$/g, "");
+  return `${e.date}-${slug}`;
+}
+
 function daysUntil(dateStr) {
   const target = new Date(dateStr + "T00:00:00");
   const now = new Date();
@@ -116,14 +137,6 @@ function applyCommon(config) {
   document.querySelectorAll("[data-contact-email]").forEach((el) => {
     el.textContent = config.contactEmail;
     el.href = "mailto:" + config.contactEmail;
-  });
-  document.querySelectorAll("[data-donation-link]").forEach((el) => {
-    if (config.donationUrl) {
-      el.href = config.donationUrl;
-    } else {
-      el.href = "#";
-      el.title = "Enlace de colaboración pendiente";
-    }
   });
 
   const socials = document.querySelector("[data-socials]");
