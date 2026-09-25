@@ -237,6 +237,19 @@ function setupNavToggle() {
   );
 }
 
+function setupHeroVideo() {
+  const video = document.querySelector(".hero-video");
+  if (!video) return;
+  video.muted = true;
+  video.setAttribute("muted", "");
+  const tryPlay = () => video.play().catch(() => {});
+  tryPlay();
+  document.addEventListener("visibilitychange", () => {
+    if (!document.hidden) tryPlay();
+  });
+  document.addEventListener("touchstart", tryPlay, { once: true, passive: true });
+}
+
 function setupHeaderShadow() {
   const header = document.querySelector("[data-site-header]");
   if (!header) return;
@@ -279,6 +292,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     setupLangSwitch(render);
     setupNavToggle();
     setupHeaderShadow();
+    setupHeroVideo();
     observeReveals();
 
     document.dispatchEvent(new CustomEvent("config-ready", { detail: config }));
