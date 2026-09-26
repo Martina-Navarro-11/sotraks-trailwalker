@@ -1,7 +1,7 @@
 let allEvents = [];
 
 async function loadEvents() {
-  const res = await fetch("data/events.json");
+  const res = await fetch("data/events.json", { cache: "no-cache" });
   return res.json();
 }
 

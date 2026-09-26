@@ -20,14 +20,14 @@ function localeFor(lang) {
 
 async function loadTranslations(lang) {
   if (translationsCache[lang]) return translationsCache[lang];
-  const res = await fetch(`data/i18n/${lang}.json`);
+  const res = await fetch(`data/i18n/${lang}.json`, { cache: "no-cache" });
   const data = await res.json();
   translationsCache[lang] = data;
   return data;
 }
 
 async function loadConfig() {
-  const res = await fetch("data/config.json");
+  const res = await fetch("data/config.json", { cache: "no-cache" });
   return res.json();
 }
 
@@ -188,7 +188,7 @@ function escapeHtml(str) {
 let eventsCache = null;
 function loadEventsOnce() {
   if (!eventsCache) {
-    eventsCache = fetch("data/events.json")
+    eventsCache = fetch("data/events.json", { cache: "no-cache" })
       .then((r) => r.json())
       .catch(() => []);
   }

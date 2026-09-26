@@ -242,7 +242,7 @@
       }
     }
     try {
-      const res = await fetch("data/events.json");
+      const res = await fetch("data/events.json", { cache: "no-cache" });
       const all = await res.json();
       const today = localToday();
       events = all.filter((e) => e.date >= today).sort((a, b) => a.date.localeCompare(b.date));
