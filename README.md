@@ -13,19 +13,30 @@ Las fotos van en la carpeta `images/`; se referencian desde `config.json` así: 
 
 ## Inscripción y pagos
 
-Todos los botones de la web ("Apúntate", "Reserva tu plaza"…) llevan a `inscripcion.html`: la persona elige un evento, rellena un formulario corto y, en el último paso, ve los datos para pagar y un botón para avisaros.
+Todos los botones de la web ("Apúntate", "Reserva tu plaza"…) llevan a `inscripcion.html`. La persona elige un evento, rellena un formulario corto y llega a una **última página informativa**: resumen, su concepto de pago, los datos para pagar y un aviso de que la plaza se confirma al recibir el pago y de que guarden su concepto (por ejemplo con una captura).
 
-- **Qué pasa con los datos de la inscripción**:
-  - *Con `signupForm` vacío (como está ahora)*: no se guardan en ningún sitio. Al terminar, el botón abre un WhatsApp (o un email) ya escrito con la inscripción para vosotros.
-  - *Con un Google Forms conectado*: cada inscripción llega sola a la hoja de respuestas del formulario (que se descarga como Excel), sin que la persona salga de la web. El texto de privacidad del formulario cambia solo a "se guardan en una hoja privada del equipo". El botón de WhatsApp/email sigue ahí como plan B.
+- **Dónde caen las inscripciones**: en el Google Forms conectado en `data/config.json`, dentro de `signupForm` (`url` acabada en `/formResponse` y, en `fields`, el código `entry.NNNNN` de cada pregunta). Cada inscripción llega sola a la hoja de respuestas del Forms (que se descarga como Excel) sin que la persona salga de la web. Todas las preguntas del Forms deben ser de "Respuesta corta" (o "Párrafo") y **ninguna obligatoria**. No borres y recrees preguntas: los códigos cambian; edítalas.
+- **Concepto de pago único**: al enviar el formulario se genera `SK` + 6 cifras aleatorias (por ejemplo `SK482913`) y se guarda en la pregunta "Concepto de pago" del Forms, para saber a qué persona corresponde cada Bizum o Revolut. Hay un millón de combinaciones, así que la probabilidad de que dos personas coincidan es muy baja (alrededor del 0,5% con 100 inscripciones y del 2% con 200). Si pasara, se distinguen por el nombre del pagador y el importe. La misma persona (mismo email y evento en su dispositivo) conserva su concepto si vuelve a entrar.
 - **Datos de pago** — en `data/config.json`, dentro de `payment`. Solo aparecen los que rellenéis:
   - `bizum`: teléfono de Bizum
   - `revolut`: enlace tipo `https://revolut.me/tunombre`
   - `iban` y `holder`: IBAN y nombre del titular para transferencia
-  Si no rellenáis ninguno, la web dice que les enviaréis los datos por mensaje.
-- **Conectar el Google Forms** — en `data/config.json`, dentro de `signupForm`: `url` es la dirección del formulario acabada en `/formResponse` y `fields` son los códigos `entry.NNNNN` de cada pregunta (evento, nombre, email, teléfono, personas, total, alergias, cómo nos has conocido, comentarios). Se sacan del "enlace prellenado" del formulario. Todas las preguntas del formulario deben ser de "Respuesta corta".
-- **Dónde os llegan los avisos** — `contactPhone` (WhatsApp, con prefijo, por ejemplo `34600111222`). Si está vacío, el aviso se envía por email a `contactEmail`.
+  Si no rellenáis ninguno, la web dice que les enviaréis los datos por correo.
+- **Precio**: campo `price` de cada evento (`events.json`). Si falta, el total sale como "por confirmar" y la web avisa de que se les confirmará el importe por correo.
 - Los eventos ya pasados no aparecen en el formulario.
+
+### Correo automático con los datos de pago
+
+**Pendiente, todavía no está activado y la web no lo promete.** Hay un script de Google que manda a cada inscrito un correo con su concepto y los datos de pago, desde la cuenta que lo instala. Cuando queráis activarlo, seguid estos pasos y añadid a la última página un aviso de que recibirán el correo.
+
+1. En el Forms, pregunta con título exacto **"Email"** y otra con título exacto **"Concepto de pago"** (Respuesta corta, no obligatorias).
+2. En el Forms: los tres puntos (⋮) → **Editor de secuencias de comandos**.
+3. Borra lo que haya y pega el contenido de `apps-script/enviar-datos-de-pago.gs`. Guarda.
+4. Menú de la izquierda, icono del reloj (**Activadores**) → **Añadir activador**: función `onFormSubmit`, origen **"Del formulario"**, tipo **"Al enviar el formulario"** → Guardar.
+5. Google pedirá permisos (enviar correos y leer la web). Saldrá "Google no ha verificado esta aplicación": **Configuración avanzada → Ir a … (no seguro) → Permitir**. Es normal en scripts propios.
+6. Prueba: haz una inscripción con tu email y comprueba que llega el correo.
+
+El correo lee los datos de pago de la web publicada, así que si cambias `payment` en `config.json` el correo se actualiza solo. Sale en castellano. Con cuentas de Google normales el límite es de unos 100 correos al día.
 
 ## Idiomas (castellano / catalán)
 
@@ -61,6 +72,7 @@ Y abre `http://localhost:8000` en el navegador.
 - [ ] `data/config.json`: fecha y lugar reales de la carrera, objetivo de recaudación, email de contacto, frases (`bio`) y fotos de cada miembro
 - [ ] `data/events.json`: vuestros eventos reales de recaudación
 - [ ] Fotos del equipo en `images/`
-- [ ] `data/config.json`: `payment` (Bizum / Revolut / IBAN) y `contactPhone` para recibir las inscripciones por WhatsApp
+- [ ] `data/config.json`: `payment` (Bizum / Revolut / IBAN)
 - [ ] `data/events.json`: precio (`price`) real de cada evento
-- [ ] `data/config.json`: `signupForm` (Google Forms) para recibir las inscripciones en una hoja
+- [ ] Pregunta "Concepto de pago" en el Forms (Respuesta corta, no obligatoria) y pasarme su código para conectarla
+- [ ] Más adelante: instalar el script de correo (ver arriba)

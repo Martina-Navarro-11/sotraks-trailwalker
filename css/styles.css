@@ -991,6 +991,55 @@ button.btn { cursor: pointer; font-family: var(--font-body); font-size: 1rem; }
 
 .concept { margin-top: 14px; }
 
+.pay-title { font-size: 1.1rem; margin: 26px 0 12px; }
+
+.ref-card {
+  background: #fff6dc;
+  border: 2px solid var(--ink);
+  border-radius: var(--radius);
+  box-shadow: 5px 5px 0 var(--sun);
+  padding: 20px 22px;
+  margin-bottom: 8px;
+}
+
+.ref-label {
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--muted);
+}
+
+.ref-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  flex-wrap: wrap;
+  margin: 4px 0 8px;
+}
+
+.ref-code {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 2.6rem;
+  letter-spacing: 0.06em;
+  line-height: 1.1;
+}
+
+.ref-help { margin: 0; font-size: 0.9rem; color: var(--muted); }
+
+.info-box {
+  background: #e8f1ff;
+  border-left: 4px solid var(--blue);
+  border-radius: 8px;
+  padding: 14px 16px;
+  margin: 20px 0 0;
+  font-size: 0.95rem;
+}
+
+.info-box strong { display: block; margin-bottom: 4px; }
+
 .pay-actions {
   display: flex;
   gap: 14px;

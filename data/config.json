@@ -9,7 +9,6 @@
   "fundraisingGoal": 3000,
   "fundraisingRaised": 0,
   "contactEmail": "sotraks@example.com",
-  "contactPhone": "",
   "payment": {
     "bizum": "",
     "revolut": "",
@@ -27,7 +26,8 @@
       "total": "entry.1780256541",
       "allergies": "entry.547634221",
       "heard": "entry.78251855",
-      "comment": "entry.1394561652"
+      "comment": "entry.1394561652",
+      "reference": "entry.172243721"
     }
   },
   "socialLinks": {

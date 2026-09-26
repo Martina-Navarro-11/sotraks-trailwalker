@@ -76,38 +76,35 @@
       : `<p class="form-note">${tr("signup.noPayment")}</p>`;
   }
 
-  function confirmLink(total) {
-    const c = config();
-    const ev = state.ev;
-    const lines = [
-      tr("signup.waIntro", { event: ev.title, date: fullDate(ev) }),
-      `${tr("signup.nameLabel")}: ${state.name}`,
-      `${tr("signup.emailLabel")}: ${state.email}`,
-      state.phone && `${tr("signup.phoneLabel")}: ${state.phone}`,
-      `${tr("signup.peopleLabel")}: ${state.people}`,
-      total !== null && `${tr("signup.summaryTotal")}: ${formatMoney(total, c)}`,
-      state.allergies && `${tr("signup.allergiesShort")}: ${state.allergies}`,
-      state.comment && `${tr("signup.commentShort")}: ${state.comment}`,
-    ].filter(Boolean);
-    const message = lines.join("\n");
-    const phone = (c.contactPhone || "").replace(/\D/g, "");
-    if (phone) {
-      return { href: `https://wa.me/${phone}?text=${encodeURIComponent(message)}`, label: tr("signup.confirmWhatsapp"), external: true };
+  // Personal payment reference: "SK" + 6 random digits, drawn from the browser's cryptographic random generator.
+  // The last multiple of 1,000,000 below 2^32 is used as a limit so every digit combination is equally likely.
+  function randomDigits() {
+    const limit = 4294000000;
+    const buf = new Uint32Array(1);
+    if (window.crypto && window.crypto.getRandomValues) {
+      do { window.crypto.getRandomValues(buf); } while (buf[0] >= limit);
+    } else {
+      buf[0] = Math.floor(Math.random() * limit);
     }
-    const subject = tr("signup.mailSubject", { event: ev.title });
-    return {
-      href: `mailto:${c.contactEmail}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(message)}`,
-      label: tr("signup.confirmEmail"),
-      external: false,
-    };
+    return String(buf[0] % 1000000).padStart(6, "0");
+  }
+
+  // Same person + same event on this device keeps the same reference, so a page refresh never issues a second one.
+  function referenceFor(st) {
+    const key = `sotraks-ref:${st.email.toLowerCase()}|${eventKey(st.ev)}`;
+    try {
+      const saved = localStorage.getItem(key);
+      if (saved) return saved;
+    } catch (err) { /* storage may be blocked; a fresh reference is still fine */ }
+    const ref = "SK" + randomDigits();
+    try { localStorage.setItem(key, ref); } catch (err) { /* ignore */ }
+    return ref;
   }
 
   function renderPay(scroll) {
     const c = config();
     const ev = state.ev;
     const total = ev.price > 0 ? ev.price * state.people : null;
-    const concept = `${c.teamName} · ${ev.title} · ${state.name}`;
-    const confirm = confirmLink(total);
 
     payPanel.innerHTML = `
       <div class="kicker">${tr("signup.kicker")}</div>
@@ -120,21 +117,28 @@
         <div><dt>${tr("signup.summaryTotal")}</dt><dd>${total !== null ? formatMoney(total, c) : tr("signup.toConfirm")}</dd></div>
       </dl>
 
+      <div class="ref-card">
+        <div class="ref-label">${tr("signup.refLabel")}</div>
+        <div class="ref-row">
+          <span class="ref-code">${esc(state.reference)}</span>
+          <button class="copy-btn" type="button" data-copy="${esc(state.reference)}">${tr("signup.copy")}</button>
+        </div>
+        <p class="ref-help">${tr("signup.refHelp")}</p>
+      </div>
+
+      ${total === null ? `<p class="info-box">${tr("signup.totalPending")}</p>` : ""}
+
+      <h3 class="pay-title">${tr("signup.payMethodsTitle")}</h3>
       ${paymentMethods()}
 
-      <div class="pay-method concept">
-        <h3>${tr("signup.conceptLabel")}</h3>
-        <div class="pay-value">
-          <span>${esc(concept)}</span>
-          <button class="copy-btn" type="button" data-copy="${esc(concept)}">${tr("signup.copy")}</button>
-        </div>
+      <div class="info-box">
+        <strong>${tr("signup.confirmNote")}</strong>
+        <span>${tr("signup.saveNote")}</span>
       </div>
 
       <div class="pay-actions">
-        <a class="btn btn-solid" href="${esc(confirm.href)}"${confirm.external ? ' target="_blank" rel="noopener"' : ""}>${confirm.label}</a>
-        <button class="btn btn-outline" type="button" data-edit>${tr("signup.edit")}</button>
-      </div>
-      <p class="form-note">${tr("signup.afterNote")}</p>`;
+        <a class="btn btn-solid" href="index.html">${tr("signup.backHome")}</a>
+      </div>`;
 
     stepForm.hidden = true;
     stepPay.hidden = false;
@@ -187,6 +191,7 @@
       allergies: st.allergies,
       heard: st.heard ? t(es, `signup.heard${st.heard}`) : "",
       comment: st.comment,
+      reference: st.reference,
     };
     const body = new URLSearchParams();
     Object.keys(values).forEach((k) => {
@@ -213,6 +218,7 @@
       heard: document.getElementById("heard").value,
       comment: document.getElementById("comment").value.trim(),
     };
+    state.reference = referenceFor(state);
     sendToForm(state);
     renderPay(true);
   });
@@ -225,11 +231,6 @@
         setTimeout(() => { copyBtn.textContent = tr("signup.copy"); }, 1600);
       }).catch(() => {});
       return;
-    }
-    if (e.target.closest("[data-edit]")) {
-      stepPay.hidden = true;
-      stepForm.hidden = false;
-      stepForm.scrollIntoView({ behavior: "smooth", block: "start" });
     }
   });
 
