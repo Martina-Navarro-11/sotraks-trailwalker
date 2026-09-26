@@ -39,6 +39,7 @@
     </video>
     <div class="hero-overlay" aria-hidden="true"></div>
     <div class="container">
+      <img class="hero-logo" src="images/logo-white.png" alt="SOTRAKS">
       <div class="eyebrow" data-i18n="hero.eyebrow"></div>
       <h1 data-i18n="hero.headline"></h1>
       <svg class="trail-underline" viewBox="0 0 220 26" aria-hidden="true">
@@ -52,6 +53,8 @@
         <a class="btn btn-primary" data-i18n="hero.ctaPrimary" href="inscripcion.html"></a>
         <a class="btn btn-secondary" href="events.html" data-i18n="hero.ctaSecondary"></a>
       </div>
+
+      <div class="next-event" data-next-event hidden></div>
 
       <div class="progress-wrap">
         <div class="progress-bar" data-progress-bar style="width: 0%"></div>
@@ -76,7 +79,49 @@
         </div>
       </div>
     </div>
-    <div class="hero-cut" aria-hidden="true"></div>
+    <div class="hero-cut to-sun" aria-hidden="true"></div>
+  </section>
+
+  <div class="ticker" aria-hidden="true">
+    <div class="ticker-track">
+      <span data-i18n="ticker.text"></span>
+      <span data-i18n="ticker.text"></span>
+      <span data-i18n="ticker.text"></span>
+      <span data-i18n="ticker.text"></span>
+      <span data-i18n="ticker.text"></span>
+      <span data-i18n="ticker.text"></span>
+      <span data-i18n="ticker.text"></span>
+      <span data-i18n="ticker.text"></span>
+    </div>
+  </div>
+
+  <section id="how" class="alt">
+    <div class="container">
+      <div class="section-heading reveal">
+        <div class="kicker" data-i18n="how.kicker"></div>
+        <h2 data-i18n="how.heading"></h2>
+      </div>
+      <div class="steps">
+        <div class="step reveal">
+          <div class="step-num">1</div>
+          <h3 data-i18n="how.step1Title"></h3>
+          <p data-i18n="how.step1Body"></p>
+        </div>
+        <div class="step reveal">
+          <div class="step-num">2</div>
+          <h3 data-i18n="how.step2Title"></h3>
+          <p data-i18n="how.step2Body"></p>
+        </div>
+        <div class="step reveal">
+          <div class="step-num">3</div>
+          <h3 data-i18n="how.step3Title"></h3>
+          <p data-i18n="how.step3Body"></p>
+        </div>
+      </div>
+      <div class="center reveal">
+        <a class="btn btn-solid" href="events.html" data-i18n="how.cta"></a>
+      </div>
+    </div>
   </section>
 
   <section id="challenge">
@@ -112,7 +157,7 @@
     </div>
   </section>
 
-  <section id="cause" class="alt">
+  <section id="cause" class="on-blue">
     <div class="container">
       <div class="section-heading reveal">
         <div class="kicker" data-i18n="cause.kicker"></div>
@@ -138,7 +183,7 @@
     </div>
   </section>
 
-  <section id="team">
+  <section id="team" class="alt">
     <div class="container">
       <div class="section-heading reveal">
         <div class="kicker" data-i18n="team.kicker"></div>
@@ -149,22 +194,23 @@
     </div>
   </section>
 
-  <section class="alt">
+  <section class="cta-band">
     <div class="container">
       <div class="section-heading reveal">
         <div class="kicker" data-i18n="helpSection.kicker"></div>
         <h2 data-i18n="helpSection.heading"></h2>
         <p data-i18n="helpSection.subheading"></p>
       </div>
-      <div class="button-row" style="margin-bottom:0;">
+      <div class="button-row reveal">
         <a class="btn btn-primary" data-i18n="helpSection.ctaPrimary" href="inscripcion.html"></a>
-        <a class="btn btn-outline" href="events.html" data-i18n="helpSection.ctaSecondary"></a>
+        <a class="btn btn-secondary" href="events.html" data-i18n="helpSection.ctaSecondary"></a>
       </div>
     </div>
   </section>
 
   <footer class="site-footer">
     <div class="container">
+      <img class="footer-logo" src="images/logo-white.png" alt="SOTRAKS">
       <p><span data-i18n="footerHome.contact"></span> <a data-contact-email href="#"></a></p>
       <div class="socials" data-socials></div>
     </div>

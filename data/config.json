@@ -16,6 +16,10 @@
     "iban": "",
     "holder": ""
   },
+  "signupForm": {
+    "url": "",
+    "fields": {"event": "", "name": "", "email": "", "phone": "", "people": "", "total": "", "comment": ""}
+  },
   "socialLinks": {
     "instagram": "",
     "facebook": "",

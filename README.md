@@ -15,12 +15,15 @@ Las fotos van en la carpeta `images/`; se referencian desde `config.json` así: 
 
 Todos los botones de la web ("Apúntate", "Reserva tu plaza"…) llevan a `inscripcion.html`: la persona elige un evento, rellena un formulario corto y, en el último paso, ve los datos para pagar y un botón para avisaros.
 
-- **Los datos no se guardan en ningún sitio**: al terminar, el botón abre un WhatsApp (o un email) ya escrito con la inscripción para vosotros. Así no hay base de datos ni que cumplir con almacenar datos personales en la web.
+- **Qué pasa con los datos de la inscripción**:
+  - *Con `signupForm` vacío (como está ahora)*: no se guardan en ningún sitio. Al terminar, el botón abre un WhatsApp (o un email) ya escrito con la inscripción para vosotros.
+  - *Con un Google Forms conectado*: cada inscripción llega sola a la hoja de respuestas del formulario (que se descarga como Excel), sin que la persona salga de la web. El texto de privacidad del formulario cambia solo a "se guardan en una hoja privada del equipo". El botón de WhatsApp/email sigue ahí como plan B.
 - **Datos de pago** — en `data/config.json`, dentro de `payment`. Solo aparecen los que rellenéis:
   - `bizum`: teléfono de Bizum
   - `revolut`: enlace tipo `https://revolut.me/tunombre`
   - `iban` y `holder`: IBAN y nombre del titular para transferencia
   Si no rellenáis ninguno, la web dice que les enviaréis los datos por mensaje.
+- **Conectar el Google Forms** — en `data/config.json`, dentro de `signupForm`: `url` es la dirección del formulario acabada en `/formResponse` y `fields` son los códigos `entry.NNNNN` de cada pregunta (evento, nombre, email, teléfono, personas, total, comentario). Se sacan del "enlace prellenado" del formulario. Todas las preguntas del formulario deben ser de "Respuesta corta".
 - **Dónde os llegan los avisos** — `contactPhone` (WhatsApp, con prefijo, por ejemplo `34600111222`). Si está vacío, el aviso se envía por email a `contactEmail`.
 - Los eventos ya pasados no aparecen en el formulario.
 
@@ -60,3 +63,4 @@ Y abre `http://localhost:8000` en el navegador.
 - [ ] Fotos del equipo en `images/`
 - [ ] `data/config.json`: `payment` (Bizum / Revolut / IBAN) y `contactPhone` para recibir las inscripciones por WhatsApp
 - [ ] `data/events.json`: precio (`price`) real de cada evento
+- [ ] `data/config.json`: `signupForm` (Google Forms) para recibir las inscripciones en una hoja

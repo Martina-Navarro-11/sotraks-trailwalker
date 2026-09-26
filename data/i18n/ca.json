@@ -8,14 +8,19 @@
   },
   "hero": {
     "eyebrow": "100 KM · UNA NIT · UNA CAUSA",
-    "headline": "Caminem {{raceDistance}} per Oxfam",
-    "lead": "{{teamName}} afronta el repte {{raceName}} el {{raceDate}} a {{raceLocation}}. Tot el que recaptem es destina a la feina d'Oxfam per portar aigua potable i pous a les comunitats que més ho necessiten.",
+    "headline": "Caminem {{raceDistance}} per portar aigua a qui no en té",
+    "lead": "A {{teamName}} som {{teamCount}} amics que el {{raceDate}} ens llancem a caminar el {{raceName}}. Cada entrada dels nostres esdeveniments es converteix en aigua neta. Vine a un, passa-ho bé i ajuda'ns a arribar-hi.",
     "ctaPrimary": "Apunta't a un esdeveniment",
     "ctaSecondary": "Veure els nostres esdeveniments",
     "statGoalLabel": "Objectiu",
     "statRaisedLabel": "Recaptat",
     "statDaysLabel": "Dies per al repte",
-    "statTeamLabel": "Persones a l'equip"
+    "statTeamLabel": "Persones a l'equip",
+    "nextLabel": "Propera cita",
+    "nextCta": "Apunta'm",
+    "nextToday": "És avui!",
+    "nextTomorrow": "És demà",
+    "nextDays": "Falten {{days}} dies"
   },
   "challenge": {
     "kicker": "el compromís",
@@ -44,7 +49,7 @@
   },
   "helpSection": {
     "kicker": "suma-t'hi",
-    "heading": "Vine amb nosaltres",
+    "heading": "Et vens?",
     "subheading": "Cada esdeveniment és una excusa per passar-ho bé i apropar-nos una mica més a la meta. Tria el teu i reserva la teva plaça.",
     "ctaPrimary": "Reserva la teva plaça",
     "ctaSecondary": "Veure el calendari"
@@ -103,6 +108,21 @@
     "edit": "Editar les meves dades",
     "afterNote": "La teva plaça queda reservada quan confirmem el pagament. Ens veiem allà!",
     "waIntro": "Hola SOTRAKS! Vull apuntar-me a «{{event}}» ({{date}}).",
-    "mailSubject": "Inscripció: {{event}}"
+    "mailSubject": "Inscripció: {{event}}",
+    "privacyStored": "Les teves dades es desen en un full privat de l'equip organitzador, només per gestionar la teva plaça. No es comparteixen amb ningú."
+  },
+  "ticker": {
+    "text": "{{raceDistance}} • {{teamCount}} amics • 1 causa • aigua per a tothom •"
+  },
+  "how": {
+    "kicker": "és fàcil",
+    "heading": "Sumar-t'hi és molt fàcil",
+    "step1Title": "Tria un pla",
+    "step1Body": "Excursions, dinars, quedades… cada esdeveniment és una excusa per passar-ho bé amb nosaltres.",
+    "step2Title": "Reserva la teva plaça",
+    "step2Body": "Omple un formulari d'un minut i et donem les dades per confirmar la teva plaça.",
+    "step3Title": "Vine i gaudeix",
+    "step3Body": "Camina, menja i riu amb nosaltres. El que pagues per la teva entrada es converteix en aigua neta amb Oxfam.",
+    "cta": "Veure els propers plans"
   }
 }

@@ -181,6 +181,53 @@ function renderHeroStats(config, lang) {
   if (teamEl) animateValue(teamEl, (config.teamMembers || []).length, { format: (n) => Math.round(n).toString() });
 }
 
+function escapeHtml(str) {
+  return String(str).replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+}
+
+let eventsCache = null;
+function loadEventsOnce() {
+  if (!eventsCache) {
+    eventsCache = fetch("data/events.json")
+      .then((r) => r.json())
+      .catch(() => []);
+  }
+  return eventsCache;
+}
+
+async function renderNextEvent(translations, lang) {
+  const box = document.querySelector("[data-next-event]");
+  if (!box) return;
+  const today = localToday();
+  const upcoming = (await loadEventsOnce())
+    .filter((e) => e.date >= today)
+    .sort((a, b) => a.date.localeCompare(b.date));
+  const next = upcoming[0];
+  if (!next) {
+    box.hidden = true;
+    return;
+  }
+  const d = new Date(next.date + "T00:00:00");
+  const month = d.toLocaleDateString(localeFor(lang), { month: "short" }).replace(".", "").toUpperCase();
+  const days = daysUntil(next.date);
+  const when =
+    days === 0
+      ? t(translations, "hero.nextToday")
+      : days === 1
+      ? t(translations, "hero.nextTomorrow")
+      : interpolate(t(translations, "hero.nextDays"), { days });
+  const place = next.location ? `${next.location} · ` : "";
+  box.innerHTML = `
+    <div class="date-chip"><b>${d.getDate()}</b><span>${month}</span></div>
+    <div class="ne-text">
+      <div class="ne-label">${t(translations, "hero.nextLabel")}</div>
+      <strong>${escapeHtml(next.title)}</strong>
+      <span>${escapeHtml(place)}${when}</span>
+    </div>
+    <a class="btn btn-primary btn-small" href="inscripcion.html?evento=${encodeURIComponent(eventKey(next))}">${t(translations, "hero.nextCta")}</a>`;
+  box.hidden = false;
+}
+
 function renderTeam(config, translations) {
   const wrap = document.querySelector("[data-team-list]");
   if (!wrap) return;
@@ -292,6 +339,7 @@ document.addEventListener("DOMContentLoaded", async () => {
       applyI18n(translations, config, lang);
       renderHeroStats(config, lang);
       renderTeam(config, translations);
+      renderNextEvent(translations, lang);
       window.__currentLang = lang;
       window.__translations = translations;
     };

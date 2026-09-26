@@ -167,6 +167,33 @@
     return legacyCopy(text);
   }
 
+  let lastSent = "";
+
+  function sendToForm(st) {
+    const cfg = config().signupForm || {};
+    const f = cfg.fields || {};
+    if (!cfg.url) return;
+    const total = st.ev.price > 0 ? formatMoney(st.ev.price * st.people, config()) : tr("signup.toConfirm");
+    const values = {
+      event: `${st.ev.title} (${st.ev.date})`,
+      name: st.name,
+      email: st.email,
+      phone: st.phone,
+      people: st.people,
+      total,
+      comment: st.comment,
+    };
+    const body = new URLSearchParams();
+    Object.keys(values).forEach((k) => {
+      if (f[k]) body.append(f[k], values[k]);
+    });
+    const signature = body.toString();
+    if (signature === lastSent) return; // don't duplicate rows if the user just goes back and forth
+    lastSent = signature;
+    // Google doesn't allow reading the response from another site, so this is fire-and-forget.
+    fetch(cfg.url, { method: "POST", mode: "no-cors", body, keepalive: true }).catch(() => {});
+  }
+
   form.addEventListener("submit", (e) => {
     e.preventDefault();
     const ev = events.find((x) => eventKey(x) === select.value);
@@ -179,6 +206,7 @@
       people: Math.max(1, parseInt(document.getElementById("people").value, 10) || 1),
       comment: document.getElementById("comment").value.trim(),
     };
+    sendToForm(state);
     renderPay(true);
   });
 
@@ -199,6 +227,13 @@
   });
 
   document.addEventListener("config-ready", async () => {
+    if ((config().signupForm || {}).url) {
+      const note = document.querySelector('[data-i18n="signup.privacy"]');
+      if (note) {
+        note.setAttribute("data-i18n", "signup.privacyStored");
+        applyI18n(window.__translations, config(), lang());
+      }
+    }
     try {
       const res = await fetch("data/events.json");
       const all = await res.json();

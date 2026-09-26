@@ -8,14 +8,19 @@
   },
   "hero": {
     "eyebrow": "100 KM · UNA NOCHE · UNA CAUSA",
-    "headline": "Caminamos {{raceDistance}} por Oxfam",
-    "lead": "{{teamName}} afronta el reto {{raceName}} el {{raceDate}} en {{raceLocation}}. Todo lo recaudado se destina al trabajo de Oxfam para llevar agua potable y pozos a las comunidades que más lo necesitan.",
+    "headline": "Caminamos {{raceDistance}} para llevar agua a quien no la tiene",
+    "lead": "{{teamName}} somos {{teamCount}} amigos que el {{raceDate}} nos lanzamos a caminar el {{raceName}}. Cada entrada de nuestros eventos se convierte en agua limpia. Ven a uno, pásalo bien y ayúdanos a llegar.",
     "ctaPrimary": "Apúntate a un evento",
     "ctaSecondary": "Ver nuestros eventos",
     "statGoalLabel": "Objetivo",
     "statRaisedLabel": "Recaudado",
     "statDaysLabel": "Días para el reto",
-    "statTeamLabel": "Personas en el equipo"
+    "statTeamLabel": "Personas en el equipo",
+    "nextLabel": "Próxima cita",
+    "nextCta": "Apuntarme",
+    "nextToday": "¡Es hoy!",
+    "nextTomorrow": "Es mañana",
+    "nextDays": "Faltan {{days}} días"
   },
   "challenge": {
     "kicker": "el compromiso",
@@ -44,7 +49,7 @@
   },
   "helpSection": {
     "kicker": "súmate",
-    "heading": "Ven con nosotros",
+    "heading": "¿Te vienes?",
     "subheading": "Cada evento es una excusa para pasarlo bien y acercarnos un poco más a la meta. Elige el tuyo y reserva tu plaza.",
     "ctaPrimary": "Reserva tu plaza",
     "ctaSecondary": "Ver el calendario"
@@ -103,6 +108,21 @@
     "edit": "Editar mis datos",
     "afterNote": "Tu plaza queda reservada cuando confirmemos el pago. ¡Nos vemos allí!",
     "waIntro": "¡Hola SOTRAKS! Quiero apuntarme a «{{event}}» ({{date}}).",
-    "mailSubject": "Inscripción: {{event}}"
+    "mailSubject": "Inscripción: {{event}}",
+    "privacyStored": "Tus datos se guardan en una hoja privada del equipo organizador, solo para gestionar tu plaza. No se comparten con nadie."
+  },
+  "ticker": {
+    "text": "{{raceDistance}} • {{teamCount}} amigos • 1 causa • agua para todos •"
+  },
+  "how": {
+    "kicker": "es fácil",
+    "heading": "Sumarte es muy fácil",
+    "step1Title": "Elige un plan",
+    "step1Body": "Excursiones, comidas, quedadas… cada evento es una excusa para pasarlo bien con nosotros.",
+    "step2Title": "Reserva tu plaza",
+    "step2Body": "Rellena un formulario de un minuto y te damos los datos para confirmar tu plaza.",
+    "step3Title": "Ven y disfruta",
+    "step3Body": "Camina, come y ríe con nosotros. Lo que pagas por tu entrada se convierte en agua limpia con Oxfam.",
+    "cta": "Ver los próximos planes"
   }
 }
