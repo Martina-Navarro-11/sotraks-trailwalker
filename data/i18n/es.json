@@ -109,7 +109,16 @@
     "afterNote": "Tu plaza queda reservada cuando confirmemos el pago. ¡Nos vemos allí!",
     "waIntro": "¡Hola SOTRAKS! Quiero apuntarme a «{{event}}» ({{date}}).",
     "mailSubject": "Inscripción: {{event}}",
-    "privacyStored": "Tus datos se guardan en una hoja privada del equipo organizador, solo para gestionar tu plaza. No se comparten con nadie."
+    "privacyStored": "Tus datos se guardan en una hoja privada del equipo organizador, solo para gestionar tu plaza. No se comparten con nadie.",
+    "allergiesLabel": "Alergias o intolerancias (si hay comida)",
+    "allergiesShort": "Alergias",
+    "heardLabel": "¿Cómo nos has conocido? (opcional)",
+    "heardPlaceholder": "Elige una opción",
+    "heard1": "Amigos o familia",
+    "heard2": "Instagram",
+    "heard3": "WhatsApp",
+    "heard4": "En persona",
+    "heard5": "Otro"
   },
   "ticker": {
     "text": "{{raceDistance}} • {{teamCount}} amigos • 1 causa • agua para todos •"

@@ -17,8 +17,18 @@
     "holder": ""
   },
   "signupForm": {
-    "url": "",
-    "fields": {"event": "", "name": "", "email": "", "phone": "", "people": "", "total": "", "comment": ""}
+    "url": "https://docs.google.com/forms/d/e/1FAIpQLSdFLr3Nx8ITlgEAPENM38i7OE76TsFWx4DYjCFPy6cUgjzKgw/formResponse",
+    "fields": {
+      "event": "entry.1427236483",
+      "name": "entry.65179091",
+      "email": "entry.1912399834",
+      "phone": "entry.1158143237",
+      "people": "entry.1422592050",
+      "total": "entry.1780256541",
+      "allergies": "entry.547634221",
+      "heard": "entry.78251855",
+      "comment": "entry.1394561652"
+    }
   },
   "socialLinks": {
     "instagram": "",

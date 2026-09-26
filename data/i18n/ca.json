@@ -109,7 +109,16 @@
     "afterNote": "La teva plaça queda reservada quan confirmem el pagament. Ens veiem allà!",
     "waIntro": "Hola SOTRAKS! Vull apuntar-me a «{{event}}» ({{date}}).",
     "mailSubject": "Inscripció: {{event}}",
-    "privacyStored": "Les teves dades es desen en un full privat de l'equip organitzador, només per gestionar la teva plaça. No es comparteixen amb ningú."
+    "privacyStored": "Les teves dades es desen en un full privat de l'equip organitzador, només per gestionar la teva plaça. No es comparteixen amb ningú.",
+    "allergiesLabel": "Al·lèrgies o intoleràncies (si hi ha menjar)",
+    "allergiesShort": "Al·lèrgies",
+    "heardLabel": "Com ens has conegut? (opcional)",
+    "heardPlaceholder": "Tria una opció",
+    "heard1": "Amics o família",
+    "heard2": "Instagram",
+    "heard3": "WhatsApp",
+    "heard4": "En persona",
+    "heard5": "Un altre"
   },
   "ticker": {
     "text": "{{raceDistance}} • {{teamCount}} amics • 1 causa • aigua per a tothom •"

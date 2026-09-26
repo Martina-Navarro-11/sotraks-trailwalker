@@ -23,7 +23,7 @@ Todos los botones de la web ("Apúntate", "Reserva tu plaza"…) llevan a `inscr
   - `revolut`: enlace tipo `https://revolut.me/tunombre`
   - `iban` y `holder`: IBAN y nombre del titular para transferencia
   Si no rellenáis ninguno, la web dice que les enviaréis los datos por mensaje.
-- **Conectar el Google Forms** — en `data/config.json`, dentro de `signupForm`: `url` es la dirección del formulario acabada en `/formResponse` y `fields` son los códigos `entry.NNNNN` de cada pregunta (evento, nombre, email, teléfono, personas, total, comentario). Se sacan del "enlace prellenado" del formulario. Todas las preguntas del formulario deben ser de "Respuesta corta".
+- **Conectar el Google Forms** — en `data/config.json`, dentro de `signupForm`: `url` es la dirección del formulario acabada en `/formResponse` y `fields` son los códigos `entry.NNNNN` de cada pregunta (evento, nombre, email, teléfono, personas, total, alergias, cómo nos has conocido, comentarios). Se sacan del "enlace prellenado" del formulario. Todas las preguntas del formulario deben ser de "Respuesta corta".
 - **Dónde os llegan los avisos** — `contactPhone` (WhatsApp, con prefijo, por ejemplo `34600111222`). Si está vacío, el aviso se envía por email a `contactEmail`.
 - Los eventos ya pasados no aparecen en el formulario.
 

@@ -86,6 +86,7 @@
       state.phone && `${tr("signup.phoneLabel")}: ${state.phone}`,
       `${tr("signup.peopleLabel")}: ${state.people}`,
       total !== null && `${tr("signup.summaryTotal")}: ${formatMoney(total, c)}`,
+      state.allergies && `${tr("signup.allergiesShort")}: ${state.allergies}`,
       state.comment && `${tr("signup.commentShort")}: ${state.comment}`,
     ].filter(Boolean);
     const message = lines.join("\n");
@@ -169,11 +170,13 @@
 
   let lastSent = "";
 
-  function sendToForm(st) {
+  async function sendToForm(st) {
     const cfg = config().signupForm || {};
     const f = cfg.fields || {};
     if (!cfg.url) return;
-    const total = st.ev.price > 0 ? formatMoney(st.ev.price * st.people, config()) : tr("signup.toConfirm");
+    // Whatever language the visitor uses, the sheet always gets Spanish labels so the data stays consistent.
+    const es = await loadTranslations("es");
+    const total = st.ev.price > 0 ? formatMoney(st.ev.price * st.people, config()) : t(es, "signup.toConfirm");
     const values = {
       event: `${st.ev.title} (${st.ev.date})`,
       name: st.name,
@@ -181,6 +184,8 @@
       phone: st.phone,
       people: st.people,
       total,
+      allergies: st.allergies,
+      heard: st.heard ? t(es, `signup.heard${st.heard}`) : "",
       comment: st.comment,
     };
     const body = new URLSearchParams();
@@ -204,6 +209,8 @@
       email: document.getElementById("email").value.trim(),
       phone: document.getElementById("phone").value.trim(),
       people: Math.max(1, parseInt(document.getElementById("people").value, 10) || 1),
+      allergies: document.getElementById("allergies").value.trim(),
+      heard: document.getElementById("heard").value,
       comment: document.getElementById("comment").value.trim(),
     };
     sendToForm(state);
