@@ -37,7 +37,7 @@
   },
   "teamMembers": [
     {"name": "Javier", "bio": "", "photo": ""},
-    {"name": "Oscar", "bio": "", "photo": ""},
+    {"name": "Oscar", "bio": "", "photo": "images/team/oscar.jpg"},
     {"name": "Albert", "bio": "", "photo": ""},
     {"name": "Oriol", "bio": "", "photo": ""},
     {"name": "Joan", "bio": "", "photo": ""},

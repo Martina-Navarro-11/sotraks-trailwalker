@@ -235,10 +235,12 @@ function renderTeam(config, translations) {
     .map((m, idx) => `
       <div class="card team-card reveal" style="transition-delay:${Math.min(idx * 50, 400)}ms">
         <div class="team-photo">${
-          m.photo ? `<img src="${m.photo}" alt="${m.name}">` : m.name.charAt(0)
+          m.photo ? `<img src="${escapeHtml(m.photo)}" alt="${escapeHtml(m.name)}" loading="lazy">` : escapeHtml(m.name.charAt(0))
         }</div>
-        <h3>${m.name}</h3>
-        ${m.bio ? `<p>${m.bio}</p>` : ""}
+        <div class="team-body">
+          <h3>${escapeHtml(m.name)}</h3>
+          ${m.bio ? `<p>${escapeHtml(m.bio)}</p>` : ""}
+        </div>
       </div>`)
     .join("");
   observeReveals();
